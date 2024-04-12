@@ -23,7 +23,7 @@ async function carregarLivros() {
             src = "../img/capaDefault.png"
         }
 
-        var autores = "";
+        var autores = "por ";
         console.log(book.volumeInfo.authors);
         if(book.volumeInfo.authors == undefined){
             autores = "Autor não disponível.";
@@ -45,8 +45,8 @@ async function carregarLivros() {
         
                    <div class="card-corpo">
                        <div class="card-corpo-titulo">
-                           Título: ${book.volumeInfo.title} <br>
-                           Autores: ${autores}
+                           ${book.volumeInfo.title} <br>
+                           ${autores}
                        </div>
                    </div>
         
