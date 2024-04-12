@@ -26,12 +26,14 @@ async function carregarLivros() {
         var autores = "";
         console.log(book.volumeInfo.authors);
         if(book.volumeInfo.authors == undefined){
-            autores = "autor não disponível";
+            autores = "Autor não disponível.";
         }
         else{
             for(var j = 0; j < book.volumeInfo.authors.length; j++){
                 autores += book.volumeInfo.authors[j] + ", ";
             }
+            autores = autores.slice(0, autores.length-2);
+            autores += ".";
         }
 
 
