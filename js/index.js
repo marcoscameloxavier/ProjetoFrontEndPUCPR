@@ -1,17 +1,22 @@
 window.onload = async function() {
-    carregarLivros();
-    console.log("carregar");
+    carregarLivros('JavaScript');
 }
 
-async function carregarLivros() {
+async function pesquisarLivros() {
+    console.log("pesquisar");
+    var livros = document.getElementById("termo-pesquisa").value;
+    console.log(livros);
+    carregarLivros(livros)
+}
+async function carregarLivros(query) {
     const apiKey = 'AIzaSyAzPMMGofkOJx-0Fb8uoutZV7apJKYCHqg';
-    const query = 'JavaScript';
+    console.log("Chamou carregar livros com " + query);
+    /*const query = 'JavaScript';*/
     const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=30&key=${apiKey}`;
-    console.log(apiUrl);
     var retorno = await fetch(apiUrl);
     var dados = await retorno.json();
 
-    console.log(dados);
+    document.getElementById("livros").innerHTML = "";
 
     for(var i = 0; i < dados.items.length; i++) {
         var book = dados.items[i];
@@ -24,7 +29,6 @@ async function carregarLivros() {
         }
 
         var autores = "por ";
-        console.log(book.volumeInfo.authors);
         if(book.volumeInfo.authors == undefined){
             autores = "Autor não disponível.";
         }
@@ -45,13 +49,14 @@ async function carregarLivros() {
         
                    <div class="card-corpo">
                        <div class="card-corpo-titulo">
-                           ${book.volumeInfo.title} <br>
-                           ${autores}
+                           <div class="titulo-livro">${book.volumeInfo.title} </div>
+                           <div class="autores">${autores}</div>
+                           <div class="preco-livro">R$ 45,90</div>
                        </div>
                    </div>
         
                <div class="card-rodape">
-                   <button>Adicionar ao carrinho</button>
+                   <button class="botao">Adicionar ao carrinho</button>
                </div>
            </div>
         `

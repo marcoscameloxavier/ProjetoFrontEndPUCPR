@@ -1,0 +1,59 @@
+:root{
+    --cor-principal-barras: #3E5962;
+    --cor-texto-principal: #172930;
+    --cor-texto-secundario: #73797f;
+    --cor-texto-barra: #FCF9F6;
+    --fonte-principal-barras: #3E5962;
+    --cor-hover: #85a99d;
+}
+.barra-principal {
+    background-color: var(--cor-principal-barras);
+    color: var(--cor-texto-barra);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    margin:0px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    height: 60px;
+}
+.logo{
+    color: var(--cor-texto-barra);
+    display:flex;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+nav a {
+    color: var(--cor-texto-barra);
+   /* font-family: Arial, sans-serif;
+    font-size: 16px;*/
+    text-decoration: none;
+    padding: 8px 16px;
+     /* Tamanho da fonte dos itens do menu */
+}
+nav a:hover {
+    background-color: var(--cor-hover); /* Cor de fundo ao passar o mouse */
+}
+
+.botao{
+    padding: 10px 20px;
+    background-color: var(--cor-principal-barras);
+    color: var(--cor-texto-barra);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 20px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 300px;
+}
+
+.fa-solid.fa-magnifying-glass:hover{
+    cursor: pointer;
+}

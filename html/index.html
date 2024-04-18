@@ -1,39 +1,30 @@
 <html>
        <head>
            <meta charset="UTF-8" />
+           <link rel="stylesheet" href="../css/util.css" />
            <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
            <link rel="stylesheet" href="../css/index.css" />
            <script defer src="../js/index.js"></script>
        </head>
    <body>
-     <header>
-         <h1>
-             Produtos
-             <br>
-         </h1>
-     </header>
-   <div id="livros">
-       <!--
-       <div class="card">
-           <div class="card-capa">
-               <img src="../img/fiji.jpg" />
-
-
-           </div>
-
-               <div class="card-corpo">
-                   <div class="card-corpo-titulo">
-                       Nome do produto <br>
-                       Descrição do produto <br>
-                       Preço do produto <br>
-                   </div>
-               </div>
-
-           <div class="card-rodape">
-               <button>Adicionar ao carrinho</button>
-           </div>
-       </div>
-       -->
-   </div>
+     <div class="barra-principal">
+         <div class="logo">Produtos</div>
+         <div class="pesquisar-livros">
+             <input type="text" placeholder="Buscar livro" id="termo-pesquisa"/>
+             <i class="fa-solid fa-magnifying-glass" onclick="pesquisarLivros()"></i>
+         </div>
+         <!-- Menu padrão para desktop -->
+         <nav>
+             <a href="#instrucoes">Login</a>
+             <a href="#eventos">Cadastro</a>
+             <a href="#ideathon">Carrinho</a>
+             <a href="#doacoes">Finalizar Compra</a>
+             <a href="#sair">Sair</a>
+         </nav>
+         <!-- Ícone de menu hamburger para dispositivos móveis -->
+         <!-- <div class="menu-toggle">☰</div>-->
+      </div>
+    <div id="livros">
+    </div>
    </body>
 </html>

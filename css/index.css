@@ -1,50 +1,51 @@
-body{
-    display: flex;
-    flex-wrap: wrap;
+:root{
+    --cor-principal-barras: #3E5962;
+    --cor-texto-principal: #172930;
+    --cor-texto-secundario: #73797f;
+    --cor-texto-barra: #FCF9F6;
+    --fonte-principal-barras: #3E5962;
+    --cor-hover: #85a99d;
 }
 
-#divConteudo{
-    display: flex;
-    flex-wrap: wrap;
-    /*width: 100%;
-    justify-content: center;
-    align-content: flex-start;*/
-}
+  #divConteudo{
+      display: flex;
+      flex-wrap: wrap;
+  }
 
-.card{
-    width: 100%;
-    width: 300px;
-    height: 400px;
-    box-shadow: 0px 0px 10px #999;
-    border-radius: 10px;
-    margin: 10px;
-    border: solid 1px #EEE;
-}
+  .card{
+      width: 100%;
+      width: 250px;
+      height: 450px;
+      box-shadow: 0px 0px 10px #999;
+      border-radius: 10px;
+      margin: 10px;
+      border: solid 1px #EEE;
+  }
 
-#livros{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
+  #livros{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-start;
 
-}
+  }
 
-.card-capa{
-    width: 100%;
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+  .card-capa{
+      width: 100%;
+      height: 230px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
 
-.card-capa img{
-    width: 100px;
-    height: 150px;
-    padding-left: 20px;
-    padding-top: 20px;
-    justify-content: center;
-    align-items: center;
-    /*border-radius: 10px 10px 0px 0px;*/
+  .card-capa img{
+      width: 140px;
+      height: 180px;
+      /* padding-left: 20px;*/
+      /*  padding-top: 10px;*/
+       justify-content: center;
+       align-items: center;
+       /*border-radius: 10px 10px 0px 0px;*/
 }
 
 .card-corpo{
@@ -58,7 +59,6 @@ body{
     width: 100%;
     height: 20%;
     border-radius: 0px 0px 10px 10px;
-    background-color: #D7F3FF;
 
     display: flex;
     align-items: center;
@@ -94,4 +94,32 @@ body{
     background-color: #99F6FE;
 }
 
+.titulo-livro{
+    color: var(--cor-texto-principal);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.autores{
+    color: var(--cor-texto-secundario);
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.preco-livro{
+    color: var(--cor-texto-principal);
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#termo-pesquisa{
+    height: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    width: 300px;
+
+}
 
