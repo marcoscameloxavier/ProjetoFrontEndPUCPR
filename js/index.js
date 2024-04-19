@@ -98,3 +98,14 @@ function gerarPrecoAleatorio() {
     // Formata o número para duas casas decimais usando vírgula para separar
     return precoAleatorio.toFixed(2).replace('.', ',');
 }
+
+function mostrarCarrinho(){
+    var carrinhoLateral = document.getElementById('carrinho-lateral');
+    carrinhoLateral.classList.add('mostrar');
+}
+
+function esconderCarrinho() {
+    var carrinhoLateral = document.getElementById('carrinho-lateral');
+    carrinhoLateral.classList.remove('mostrar');
+}
+

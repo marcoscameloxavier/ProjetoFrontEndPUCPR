@@ -121,3 +121,110 @@
 
 }
 
+.carrinho-lateral {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Esconde a barra lateral para a direita */
+    width: 400px; /* Ou a largura que você preferir */
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s; /* Para animar a barra lateral */
+    z-index: 1000; /* Garante que ela fique acima de outros elementos */
+}
+
+.carrinho-lateral.mostrar {
+    right: 0; /* Mostra a barra lateral */
+}
+
+.botao-fechar-carrinho {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.itens-carrinho {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+.titulo-livro {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.preco-livro {
+    white-space: nowrap;
+}
+
+.quantidade-livro {
+    display: flex;
+    align-items: center;
+}
+
+.btn-quantidade {
+    border: none;
+    background-color: var(--cor-principal-barras);
+    color: var(--cor-texto-barra);
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn-quantidade:active {
+    background-color: #cacaca;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 40px;
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+.capa-livro {
+    width: 60px; /* Ou a largura desejada para a miniatura */
+    height: auto;
+    margin-right: 10px;
+}
+
+.info-livro {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.titulo-livro {
+    margin-bottom: 5px; /* Espaço entre o título e o preço */
+}
+
+.quantidade-livro {
+    display: flex;
+    align-items: center;
+}
+
