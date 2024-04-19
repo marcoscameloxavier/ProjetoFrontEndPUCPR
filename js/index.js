@@ -24,8 +24,8 @@ async function carregarLivros(query) {
 
     console.log(dados);
 
-    if(dados.totalItems === 0){
-        document.getElementById("livros").innerHTML = "</br> Não há resultados para sua busca!";
+    if(dados.totalItems < 2){
+        document.getElementById("livros").innerHTML = "</br></br> Não há resultados para sua busca!";
     }
     else {
         for (var i = 0; i < dados.items.length; i++) {
@@ -67,7 +67,7 @@ async function carregarLivros(query) {
                        <div class="card-corpo-titulo">
                            <div class="titulo-livro">${titulo} </div>
                            <div class="autores">${autores}</div>
-                           <div class="preco-livro">R$ 45,90</div>
+                           <div class="preco-livro">R$ ${gerarPrecoAleatorio()}</div>
                        </div>
                    </div>
         
@@ -76,7 +76,6 @@ async function carregarLivros(query) {
                </div>
            </div>
         `
-
             document.getElementById("livros").innerHTML += livro;
         }
     }
@@ -91,3 +90,11 @@ input.addEventListener("keypress", function(event) {
         pesquisarLivros();
     }
 });
+
+function gerarPrecoAleatorio() {
+    const min = 20;
+    const max = 300;
+    const precoAleatorio = Math.random() * (max - min) + min;
+    // Formata o número para duas casas decimais usando vírgula para separar
+    return precoAleatorio.toFixed(2).replace('.', ',');
+}
