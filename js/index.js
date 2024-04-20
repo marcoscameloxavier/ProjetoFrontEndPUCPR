@@ -1,19 +1,16 @@
 window.onload = async function() {
-    carregarLivros('JavaScript');
+    carregarLivros('front-end');
 }
 
 async function pesquisarLivros() {
-    console.log("pesquisar");
     var livros = document.getElementById("termo-pesquisa").value;
-    console.log(livros);
     carregarLivros(livros)
 }
 async function carregarLivros(query) {
     const apiKey = 'AIzaSyAzPMMGofkOJx-0Fb8uoutZV7apJKYCHqg';
-    console.log("Chamou carregar livros com " + query);
 
     if (query === "") {
-        query = "JavaScript";
+        query = "front-end";
     }
 
     const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=${apiKey}`;
@@ -21,8 +18,6 @@ async function carregarLivros(query) {
     var dados = await retorno.json();
 
     document.getElementById("livros").innerHTML = "";
-
-    console.log(dados);
 
     if(dados.totalItems < 2){
         document.getElementById("livros").innerHTML = "</br></br> Não há resultados para sua busca!";
@@ -49,12 +44,19 @@ async function carregarLivros(query) {
                 autores += ".";
             }
 
+            if (autores.length > 100) {
+                autores = autores.slice(0, 100);
+                autores += "...";
+            }
+
             var titulo = book.volumeInfo.title;
 
             if (titulo.length > 65) {
                 titulo = titulo.slice(0, 65);
                 titulo += "...";
             }
+
+            var preco = gerarPrecoAleatorio();
 
 
             var livro = `
@@ -67,12 +69,12 @@ async function carregarLivros(query) {
                        <div class="card-corpo-titulo">
                            <div class="titulo-livro">${titulo} </div>
                            <div class="autores">${autores}</div>
-                           <div class="preco-livro">R$ ${gerarPrecoAleatorio()}</div>
+                           <div class="preco-livro">R$ ${preco.replace('.', ',')}</div>
                        </div>
                    </div>
         
                <div class="card-rodape">
-                   <button class="botao">Adicionar ao carrinho</button>
+                   <button class="botao" onclick="salvarItemCarrinho('${book.id}','${titulo}',${preco},'${src}')">Adicionar ao carrinho</button>
                </div>
            </div>
         `
@@ -96,7 +98,7 @@ function gerarPrecoAleatorio() {
     const max = 300;
     const precoAleatorio = Math.random() * (max - min) + min;
     // Formata o número para duas casas decimais usando vírgula para separar
-    return precoAleatorio.toFixed(2).replace('.', ',');
+    return precoAleatorio.toFixed(2);
 }
 
 function mostrarCarrinho(){
@@ -107,5 +109,24 @@ function mostrarCarrinho(){
 function esconderCarrinho() {
     var carrinhoLateral = document.getElementById('carrinho-lateral');
     carrinhoLateral.classList.remove('mostrar');
+}
+
+function salvarItemCarrinho(id, titulo, preco, srcImg){
+    var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
+
+    if(carrinho === null){
+        carrinho = [];
+    }
+
+    var novoLivroCarrinho = {
+        id: id,
+        titulo: titulo,
+        preco: preco,
+        quantidade: 1,
+        src: srcImg,
+    };
+
+    carrinho.push(novoLivroCarrinho);
+    localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
 }
 
