@@ -104,6 +104,7 @@ function gerarPrecoAleatorio() {
 function mostrarCarrinho(){
     var carrinhoLateral = document.getElementById('carrinho-lateral');
     carrinhoLateral.classList.add('mostrar');
+    carregarCarrinho();
 }
 
 function esconderCarrinho() {
@@ -126,7 +127,95 @@ function salvarItemCarrinho(id, titulo, preco, srcImg){
         src: srcImg,
     };
 
+    //verificar se já existe livro salvo no carrinho com o mesmo id
+    for (var i = 0; i < carrinho.length; i++){
+        if (carrinho[i].id === id){
+            carrinho[i].quantidade++;
+            localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
+            mostrarCarrinho();
+            return;
+        }
+    }
+
     carrinho.push(novoLivroCarrinho);
     localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
+    mostrarCarrinho();
 }
 
+function carregarCarrinho(){
+    var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
+    botaoFinalizarCompra = document.getElementById("finalizar-compra");
+    botaoLimparCarrinho = document.getElementById("limpar-carrinho");
+
+    if (carrinho === null){
+        document.getElementById("itens-carrinho").innerHTML = "</br>Você ainda não adicionou nenhum item ao carrinho!";
+        botaoFinalizarCompra.style.display = "none";
+        botaoLimparCarrinho.style.display = "none";
+    }
+    else{
+        document.getElementById("itens-carrinho").innerHTML = "";
+        botaoFinalizarCompra.style.display = "block";
+        botaoLimparCarrinho.style.display = "block";
+
+        for (var i = 0; i < carrinho.length; i++) {
+            var itemCarrinho = `
+                <div class="item-carrinho">
+                   <img class="capa-livro" src="${carrinho[i].src}">
+                   <div class="info-livro">
+                       <span class="titulo-livro">${carrinho[i].titulo}</span>
+                       <span class="preco-livro">R$ ${calcularPrecoTotalItemCarrinho(carrinho[i].quantidade,carrinho[i].preco)}</span>
+                       <div class="quantidade-livro">
+                           <button class="btn-quantidade diminuir" onclick="diminuirQuantidade('${carrinho[i].id}')">-</button>
+                           <input type="text" value="${carrinho[i].quantidade}" readonly>
+                           <button class="btn-quantidade aumentar" onclick="aumentarQuantidade('${carrinho[i].id}')">+</button>
+                       </div>
+                   </div>
+               </div>
+            `
+            document.getElementById("itens-carrinho").innerHTML += itemCarrinho;
+        }
+    }
+}
+
+function limparCarrinho(){
+    localStorage.removeItem("carrinhoLivros");
+    carregarCarrinho();
+}
+
+function calcularPrecoTotalItemCarrinho(quantidade, preco){
+    var total = quantidade * preco;
+    // Arredonda para duas casas decimais antes de converter para string
+    total = total.toFixed(2); // Isso retorna uma string já arredondada
+    return total.replace('.', ',');
+}
+
+function aumentarQuantidade(id) {
+    var carrinho = JSON.parse(localStorage.getItem('carrinhoLivros'));
+    for (var i = 0; i < carrinho.length; i++){
+        if (carrinho[i].id === id){
+            carrinho[i].quantidade++;
+            localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
+            mostrarCarrinho();
+            return;
+        }
+    }
+}
+
+function diminuirQuantidade(id) {
+    var carrinho = JSON.parse(localStorage.getItem('carrinhoLivros'));
+    for (var i = 0; i < carrinho.length; i++){
+        if (carrinho[i].id === id){
+            if(carrinho[i].quantidade === 1) {
+                carrinho.removeItem(i);
+                carrinho[i].quantidade--;
+                localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
+            }
+            else {
+                carrinho[i].quantidade--;
+                localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
+            }
+            mostrarCarrinho();
+            return;
+        }
+    }
+}

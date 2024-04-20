@@ -150,6 +150,7 @@
 .itens-carrinho {
     padding-left: 20px;
     padding-right: 20px;
+    max-height: 780px;
     overflow-y: auto;
 }
 
@@ -157,8 +158,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     padding: 10px;
     background-color: #f2f2f2;
     border-radius: 4px;

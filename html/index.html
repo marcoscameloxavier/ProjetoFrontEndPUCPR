@@ -31,36 +31,11 @@
            <h2>Resumo do Carrinho</h2>
            <button id="fechar-carrinho" class="botao-fechar-carrinho" onclick="esconderCarrinho()">&times;</button>
            <!-- Adicione os itens do carrinho aqui -->
-           <div class="itens-carrinho">
-               <!-- Item do Carrinho -->
-               <div class="item-carrinho">
-                   <img class="capa-livro" src="http://books.google.com/books/content?id=yjUQCwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">
-                   <div class="info-livro">
-                       <span class="titulo-livro">Harry Potter e a Pedra Filosofal</span>
-                       <span class="preco-livro">R$ 39,90</span>
-                       <div class="quantidade-livro">
-                           <button class="btn-quantidade diminuir">-</button>
-                           <input type="text" value="1" readonly>
-                           <button class="btn-quantidade aumentar">+</button>
-                       </div>
-                   </div>
-               </div>
-               <div class="item-carrinho">
-                   <img class="capa-livro" src="http://books.google.com/books/content?id=WzbfCgAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">
-                   <div class="info-livro">
-                       <span class="titulo-livro">JavaScript: Um Guia para Aprender a Linguagem</span>
-                       <span class="preco-livro">R$ 121.49</span>
-                       <div class="quantidade-livro">
-                           <button class="btn-quantidade diminuir">-</button>
-                           <input type="text" value="1" readonly>
-                           <button class="btn-quantidade aumentar">+</button>
-                       </div>
-                   </div>
-               </div>
-               <!-- Repita os blocos acima para cada item no carrinho -->
+           <div class="itens-carrinho" id="itens-carrinho">
+               <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
            </div>
-           <button class="botao">Finalizar Compra</button>
+           <button class="botao" id="limpar-carrinho" onclick="limparCarrinho()">Limpar Carrinho</button>
+           <button class="botao" id="finalizar-compra">Finalizar Compra</button>
        </div>
-
    </body>
 </html>
