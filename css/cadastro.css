@@ -1,0 +1,31 @@
+#formulario-cadastro{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    font-size: 12;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: var(--cor-texto-principal);
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: var(--cor-texto-principal);
+    font-size: 14px;
+}
+
