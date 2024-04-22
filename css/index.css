@@ -118,7 +118,11 @@
     font-family: Arial, sans-serif;
     font-size: 16px;
     width: 300px;
-
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--cor-texto-principal);
 }
 
 .carrinho-lateral {
@@ -238,4 +242,15 @@ h2 {
     padding-left: 50px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.total-carrinho {
+    padding: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--cor-texto-secundario);
 }

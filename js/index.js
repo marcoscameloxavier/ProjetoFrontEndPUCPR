@@ -105,6 +105,7 @@ function mostrarCarrinho(){
     var carrinhoLateral = document.getElementById('carrinho-lateral');
     carrinhoLateral.classList.add('mostrar');
     carregarCarrinho();
+    ajustarPrecoTotaleProdutos();
 }
 
 function esconderCarrinho() {
@@ -178,8 +179,16 @@ function carregarCarrinho(){
 }
 
 function limparCarrinho(){
-    localStorage.removeItem("carrinhoLivros");
-    carregarCarrinho();
+    // Mostrar diálogo de confirmação
+    var userConfirmed = confirm("Tem certeza que deseja limpar o carrinho?");
+
+    // Se o usuário confirmou, prosseguir com a deleção
+    if (userConfirmed) {
+        localStorage.removeItem("carrinhoLivros");
+        carregarCarrinho();
+        document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
+        document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: 0`;
+    }
 }
 
 function calcularPrecoTotalItemCarrinho(quantidade, preco){
@@ -205,10 +214,12 @@ function diminuirQuantidade(id) {
     var carrinho = JSON.parse(localStorage.getItem('carrinhoLivros'));
     for (var i = 0; i < carrinho.length; i++){
         if (carrinho[i].id === id){
-            if(carrinho[i].quantidade === 1) {
-                carrinho.removeItem(i);
-                carrinho[i].quantidade--;
+            if(carrinho[i].quantidade <= 1) {
+                carrinho.splice(i, 1);
                 localStorage.setItem("carrinhoLivros", JSON.stringify(carrinho));
+                if(carrinho.length === 0){
+                    limparCarrinho();
+                }
             }
             else {
                 carrinho[i].quantidade--;
@@ -217,5 +228,24 @@ function diminuirQuantidade(id) {
             mostrarCarrinho();
             return;
         }
+    }
+}
+
+function ajustarPrecoTotaleProdutos() {
+    var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
+    if (carrinho === null) {
+        document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
+        document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: 0`;
+    }
+    else {
+    var total = 0;
+    var totalprodutos = 0;
+    for (var i = 0; i < carrinho.length; i++) {
+        total += carrinho[i].quantidade * carrinho[i].preco;
+        totalprodutos += carrinho[i].quantidade;
+    }
+    total = total.toFixed(2);
+    document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: ${totalprodutos}`;
+    document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ ${total.replace('.', ',')}`;
     }
 }

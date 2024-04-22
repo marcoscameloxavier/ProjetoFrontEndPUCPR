@@ -10,7 +10,7 @@
     background-color: var(--cor-principal-barras);
     color: var(--cor-texto-barra);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alinha os itens ao início do container */
     padding: 10px;
     align-items: center;
     margin:0px;
@@ -24,6 +24,11 @@
     align-content: center;
     flex-wrap: wrap;
     height: 100%;
+    padding-right: 20px;
+}
+
+nav {
+    display: flex;
 }
 
 nav a {
@@ -56,4 +61,8 @@ nav a:hover {
 
 .fa-solid.fa-magnifying-glass:hover{
     cursor: pointer;
+}
+
+.pesquisar-livros {
+    margin-right: auto; /* Empurra tudo que está à direita para o fim do container */
 }
