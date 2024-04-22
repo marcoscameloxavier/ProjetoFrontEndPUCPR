@@ -1,5 +1,5 @@
 window.onload = async function() {
-    carregarLivros('front-end');
+    carregarLivros('html');
 }
 
 async function pesquisarLivros() {
@@ -10,7 +10,7 @@ async function carregarLivros(query) {
     const apiKey = 'AIzaSyAzPMMGofkOJx-0Fb8uoutZV7apJKYCHqg';
 
     if (query === "") {
-        query = "front-end";
+        query = "html";
     }
 
     const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=${apiKey}`;
@@ -147,16 +147,22 @@ function carregarCarrinho(){
     var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
     botaoFinalizarCompra = document.getElementById("finalizar-compra");
     botaoLimparCarrinho = document.getElementById("limpar-carrinho");
+    textoTotal = document.getElementById("itens-total-carrinho");
+    textoValorTotal = document.getElementById("valor-total-carrinho")
 
     if (carrinho === null){
         document.getElementById("itens-carrinho").innerHTML = "</br>Você ainda não adicionou nenhum item ao carrinho!";
         botaoFinalizarCompra.style.display = "none";
         botaoLimparCarrinho.style.display = "none";
+        textoTotal.style.display = "none";
+        textoValorTotal.style.display = "none";
     }
     else{
         document.getElementById("itens-carrinho").innerHTML = "";
         botaoFinalizarCompra.style.display = "block";
         botaoLimparCarrinho.style.display = "block";
+        textoTotal.style.display = "block";
+        textoValorTotal.style.display = "block";
 
         for (var i = 0; i < carrinho.length; i++) {
             var itemCarrinho = `
@@ -179,16 +185,11 @@ function carregarCarrinho(){
 }
 
 function limparCarrinho(){
-    // Mostrar diálogo de confirmação
-    var userConfirmed = confirm("Tem certeza que deseja limpar o carrinho?");
-
-    // Se o usuário confirmou, prosseguir com a deleção
-    if (userConfirmed) {
-        localStorage.removeItem("carrinhoLivros");
-        carregarCarrinho();
-        document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
-        document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: 0`;
-    }
+    localStorage.removeItem("carrinhoLivros");
+    carregarCarrinho();
+    document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
+    document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: 0`;
+    fecharModalLimparCarrinho();
 }
 
 function calcularPrecoTotalItemCarrinho(quantidade, preco){
@@ -248,4 +249,16 @@ function ajustarPrecoTotaleProdutos() {
     document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: ${totalprodutos}`;
     document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ ${total.replace('.', ',')}`;
     }
+}
+
+// Função para abrir o modal de confirmação de limpeza do carrinho
+function mostrarModalLimparCarrinho() {
+    document.getElementById('modalConfirmacao').style.display = 'block';
+    document.getElementById('carrinho-lateral').style.opacity = '0.8'; // Reduz a opacidade do carrinho
+}
+
+// Função para fechar o modal de confirmação de limpeza do carrinho
+function fecharModalLimparCarrinho() {
+    document.getElementById('modalConfirmacao').style.display = 'none';
+    document.getElementById('carrinho-lateral').style.opacity = '1'; // Restaura a opacidade do carrinho
 }

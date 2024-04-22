@@ -129,12 +129,12 @@
     position: fixed;
     top: 0;
     right: -400px; /* Esconde a barra lateral para a direita */
-    width: 400px; /* Ou a largura que você preferir */
+    width: 400px;
     height: 100%;
     background: white;
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     transition: right 0.3s; /* Para animar a barra lateral */
-    z-index: 1000; /* Garante que ela fique acima de outros elementos */
+    z-index: 100; /* Garante que ela fique acima de outros elementos */
 }
 
 .carrinho-lateral.mostrar {
@@ -154,7 +154,7 @@
 .itens-carrinho {
     padding-left: 20px;
     padding-right: 20px;
-    max-height: 780px;
+    max-height: 700px;
     overflow-y: auto;
 }
 
@@ -249,8 +249,63 @@ body{
 }
 
 .total-carrinho {
-    padding: 30px;
     font-weight: bold;
     font-size: 16px;
+    margin-top: 10px;
+    margin-left: 20px;
     color: var(--cor-texto-secundario);
+}
+
+/* Estilo do modal */
+.modal {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed; /* Fixo na tela */
+    left: 50%;
+    top: 50%;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Adiciona scroll se necessário */
+    background-color: rgba(0,0,0,0.4); /* Fundo preto com opacidade */
+    transform: translate(-50%, -50%);
+    z-index: 200;
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 280px; /* Pode ser mais ou menos, dependendo do design */
+}
+
+/* O botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao-modal{
+    padding: 10px 20px;
+    background-color: var(--cor-principal-barras);
+    color: var(--cor-texto-barra);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.botao-modal:hover{
+    background-color: var(--cor-hover);
 }

@@ -5,10 +5,11 @@
            <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
            <link rel="stylesheet" href="../css/index.css" />
            <script defer src="../js/index.js"></script>
+           <title>Book Store</title>
        </head>
    <body>
      <div class="barra-principal">
-         <div class="logo">Produtos</div>
+         <img class="logo" src="../img/Logo3.png">Páginas Infinitas</img>
          <div class="pesquisar-livros">
              <input type="text" placeholder="Buscar livro" id="termo-pesquisa"/>
              <i class="fa-solid fa-magnifying-glass" onclick="pesquisarLivros()"></i>
@@ -35,11 +36,21 @@
                <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
            </div>
            <div class="total-carrinho">
-               <span id="itens-total-carrinho">Total de produtos: 0</span></br>
+               <span id="itens-total-carrinho">Total de produtos: 0</span>
                <span id="valor-total-carrinho">Total: R$ 0,00</span>
            </div>
-           <button class="botao" id="limpar-carrinho" onclick="limparCarrinho()">Limpar Carrinho</button>
+           <button class="botao" id="limpar-carrinho" onclick="mostrarModalLimparCarrinho()">Limpar Carrinho</button>
            <button class="botao" id="finalizar-compra">Finalizar Compra</button>
        </div>
+
+         <!-- Modal de confirmação para limpar o carrinho -->
+         <div id="modalConfirmacao" class="modal">
+             <div class="modal-content">
+                 <span class="close" onclick="fecharModalLimparCarrinho()">&times;</span>
+                 <p>Tem certeza que deseja limpar o carrinho?</p>
+                 <button id="confirmarLimpeza" class="botao-modal" onclick="limparCarrinho()">Confirmar</button>
+                 <button id="cancelarLimpeza" class="botao-modal" onclick="fecharModalLimparCarrinho()">Cancelar</button>
+             </div>
+         </div>
    </body>
 </html>
