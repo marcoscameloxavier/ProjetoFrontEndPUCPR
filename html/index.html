@@ -16,7 +16,7 @@
          </div>
          <!-- Menu padrão para desktop -->
          <nav>
-             <a href="#login">Login</a>
+             <a href="#login" onclick="mostrarModalLogin()">Login</a>
              <a href="cadastro.html" onclick="">Cadastro</a>
              <a href="#carrinho" onclick="mostrarCarrinho()">Carrinho</a>
              <a href="#finalizar">Finalizar Compra</a>
@@ -51,6 +51,30 @@
                  <button id="confirmarLimpeza" class="botao-modal" onclick="limparCarrinho()">Confirmar</button>
                  <button id="cancelarLimpeza" class="botao-modal" onclick="fecharModalLimparCarrinho()">Cancelar</button>
              </div>
+         </div>
+
+         <!-- Modal de Login-->
+         <div id="modalLogin" class="modal" >
+            <div class="modal-login-wrapper">
+               <div class="modal-login-content">
+                   <!-- Pagina de login rápido -->
+                   <h2>Login</h2>
+                   <button id="fechar-login" class="botao-fechar-login" onclick="fecharModalLogin()">&times;</button>
+                   <!--Login-->
+                   <div class="dados-login" id="dados-login">
+                       <label for="email">Email cadastrado:</label>
+                       <input type="text" id="email" name="email" size="200" required> <br>
+                       <label for="senha">Senha:</label>
+                       <input type="password" id="senha" name="senha" required> <br>
+                   </div>
+                   <div>
+                      <button class="botao" id="efetuar-login" onclick="login()">Efetuar Login na Conta</button>
+                      <br>
+                      Não tem cadastro?<br>
+                      <button class="botao" id="efetuar-cadastro" onclick="cadastro()">Efetuar Cadastro</button>
+                   </div>
+               </div>
+            </div>
          </div>
    </body>
 </html>

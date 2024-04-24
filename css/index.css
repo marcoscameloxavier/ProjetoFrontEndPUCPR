@@ -196,10 +196,11 @@
     background-color: #cacaca;
 }
 
-input[type="text"] {
+.input[type="text"] {
     border: 1px solid #ccc;
     text-align: center;
     width: 40px;
+    color: var(--cor-texto-principal);
 }
 
 .item-carrinho {
@@ -234,8 +235,8 @@ input[type="text"] {
     align-items: center;
 }
 
-h2 {
-    color: #444;
+.h2 {
+    /*color: #444;*/
     border-bottom: 2px solid #eee;
     color: var(--cor-texto-secundario);
     font-family: Arial, sans-serif;
@@ -244,7 +245,7 @@ h2 {
     margin-right: 10px;
 }
 
-body{
+.body{
     font-family: Arial, sans-serif;
 }
 
@@ -309,3 +310,74 @@ body{
 .botao-modal:hover{
     background-color: var(--cor-hover);
 }
+
+/* Estilo do modal de login */
+#modalLogin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-login-content {
+    position: relative;
+    background-color: #fefefe;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #888;
+
+}
+
+.modal-login-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+.login-popup {
+    position: center;
+}
+*/
+
+
+.botao-fechar-login {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+/*
+.botao-fechar-login:hover{
+    background-color: var(--cor-hover);
+}
+*/
+.dados-login {
+    margin-bottom: 20px;
+}
+
+.dados-login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dados-login input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+

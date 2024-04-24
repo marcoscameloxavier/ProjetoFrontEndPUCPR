@@ -262,3 +262,34 @@ function fecharModalLimparCarrinho() {
     document.getElementById('modalConfirmacao').style.display = 'none';
     document.getElementById('carrinho-lateral').style.opacity = '1'; // Restaura a opacidade do carrinho
 }
+
+
+//Bloco para o Modal de Login
+function mostrarModalLogin() {
+    document.getElementById('modalLogin').style.display = 'block';
+    document.getElementById('login-lateral').style.opacity = '1'; // Reduz a opacidade do carrinho
+}
+
+//Funcao para fechar o modal de login
+function fecharModalLogin() {
+    document.getElementById('modalLogin').style.display = 'none';
+    document.getElementById('login-lateral').style.opacity = '1'; // Restaura a opacidade do carrinho
+}
+
+// Função para efetuar o login
+function login() {
+    // Aqui você pode adicionar o código para validar o login e redirecionar o usuário
+    // Por enquanto, apenas exibiremos uma mensagem no console
+
+}
+
+// Função para efetuar o cadastro
+function cadastro() {
+    // Aqui você pode adicionar o código para direcionar o usuário para a página de cadastro
+    // Por enquanto, apenas exibiremos uma mensagem no console
+
+}
+
+// Adiciona um ouvinte de eventos ao botão de fechar
+var botaoFecharLogin = document.getElementById('fechar-login');
+botaoFecharLogin.addEventListener('click', fecharModalLogin);
