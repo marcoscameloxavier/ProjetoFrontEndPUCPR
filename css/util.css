@@ -59,6 +59,27 @@ nav a:hover {
     width: 300px;
 }
 
+.botao-secundario{
+    padding: 10px 20px;
+    background-color: var(--cor-texto-barra);
+    color: var(--cor-texto-principal);
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 300px;
+}
+
+.botao-secundario:hover{
+    background-color: var(--cor-texto-principal);
+    color: var(--cor-texto-barra);
+}
+
 .fa-solid.fa-magnifying-glass:hover{
     cursor: pointer;
 }
@@ -71,3 +92,64 @@ nav a:hover {
 .botao:hover{
     background-color: var(--cor-hover);
 }
+
+h2 {
+    border-bottom: 2px solid #eee;
+    color: var(--cor-texto-secundario);
+    font-family: Arial, sans-serif;
+    padding-left: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h1 {
+    border-bottom: 2px solid #eee;
+    color: var(--cor-texto-secundario);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+/*CSS para label flututante em input text*/
+.form-floating-label {
+    position: relative; /*O posicionamento relativo permite que o rótulo flutuante seja posicionado dentro do elemento*/
+    margin-bottom: 15px;
+}
+
+.form-floating-label input {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px 10px;
+    outline: none; /*Remove a borda padrão do campo de entrada quando ele está em foco (o usuário clicou nele).*/
+}
+
+.form-floating-label label {
+    pointer-events: none; /*Evita que o usuário interaja diretamente com o rótulo clicando nele. Isso é útil porque o clique deve focar o campo de entrada associado.*/
+    position: absolute; /*Posiciona o rótulo em relação ao campo de entrada.*/
+    left: 10px;
+    top: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease; /*Define uma transição suave para todas as propriedades do rótulo que mudam (como posição e tamanho da fonte) durante 0,3 segundos com uma curva de animação "ease" (facilitando a entrada e saída).*/
+}
+
+.form-floating-label input:focus + label,  /*Seleciona o rótulo que está depois (+) de um elemento <input> dentro do elemento form-floating-label quando o campo de entrada está em foco (o usuário clicou nele).*/
+.form-floating-label input:not(:placeholder-shown) + label {  /*Seleciona o rótulo que está depois (+) de um elemento <input> dentro do elemento form-floating-label quando o texto do placeholder não está sendo exibido (ou seja, o usuário digitou algo ou o campo já tem um valor).*/
+    top: -10px; /*Move o rótulo 10 pixels para cima em relação à sua posição inicial, fazendo com que ele "flutue" acima do campo de entrada.*/
+    font-size: 14px;
+    color: var(--cor-principal-barras);
+    background: white;
+    padding: 0 4px;
+}
+
+.form-floating-label input:focus {
+    border-color: var(--cor-hover);
+}
+/**/

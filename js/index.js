@@ -173,7 +173,7 @@ function carregarCarrinho(){
                        <span class="preco-livro">R$ ${calcularPrecoTotalItemCarrinho(carrinho[i].quantidade,carrinho[i].preco)}</span>
                        <div class="quantidade-livro">
                            <button class="btn-quantidade diminuir" onclick="diminuirQuantidade('${carrinho[i].id}')">-</button>
-                           <input type="text" value="${carrinho[i].quantidade}" readonly>
+                           <input type="text" class="input-quantidade-carrinho" value="${carrinho[i].quantidade}" readonly>
                            <button class="btn-quantidade aumentar" onclick="aumentarQuantidade('${carrinho[i].id}')">+</button>
                        </div>
                    </div>

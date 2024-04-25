@@ -49,7 +49,7 @@
                  <span class="close" onclick="fecharModalLimparCarrinho()">&times;</span>
                  <p>Tem certeza que deseja limpar o carrinho?</p>
                  <button id="confirmarLimpeza" class="botao-modal" onclick="limparCarrinho()">Confirmar</button>
-                 <button id="cancelarLimpeza" class="botao-modal" onclick="fecharModalLimparCarrinho()">Cancelar</button>
+                 <button id="cancelarLimpeza" class="botao-modal-cancel" onclick="fecharModalLimparCarrinho()">Cancelar</button>
              </div>
          </div>
 
@@ -58,20 +58,24 @@
             <div class="modal-login-wrapper">
                <div class="modal-login-content">
                    <!-- Pagina de login rápido -->
-                   <h2>Login</h2>
+                   <h1>Login</h1>
                    <button id="fechar-login" class="botao-fechar-login" onclick="fecharModalLogin()">&times;</button>
                    <!--Login-->
                    <div class="dados-login" id="dados-login">
-                       <label for="email">Email cadastrado:</label>
-                       <input type="text" id="email" name="email" size="200" required> <br>
-                       <label for="senha">Senha:</label>
-                       <input type="password" id="senha" name="senha" required> <br>
+                       <div class="form-floating-label">
+                           <input type="text" id="email" name="email" size="200" required placeholder=" ">
+                           <label for="email">Email cadastrado</label>
+                       </div>
+                       <div class="form-floating-label">
+                           <input type="password" id="senha" name="senha" required placeholder=" ">
+                           <label for="senha">Senha</label>
+                       </div>
                    </div>
                    <div>
                       <button class="botao" id="efetuar-login" onclick="login()">Efetuar Login na Conta</button>
-                      <br>
-                      Não tem cadastro?<br>
-                      <button class="botao" id="efetuar-cadastro" onclick="cadastro()">Efetuar Cadastro</button>
+                      <!--<br>
+                      Não tem cadastro?<br>-->
+                      <button class="botao-secundario" id="efetuar-cadastro" onclick="cadastro()">Efetuar Cadastro</button>
                    </div>
                </div>
             </div>

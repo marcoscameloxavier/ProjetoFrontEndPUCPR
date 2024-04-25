@@ -196,7 +196,7 @@
     background-color: #cacaca;
 }
 
-input[type="text"] {
+.input-quantidade-carrinho{
     border: 1px solid #ccc;
     text-align: center;
     width: 40px;
@@ -233,16 +233,6 @@ input[type="text"] {
 .quantidade-livro {
     display: flex;
     align-items: center;
-}
-
-h2 {
-    /*color: #444;*/
-    border-bottom: 2px solid #eee;
-    color: var(--cor-texto-secundario);
-    font-family: Arial, sans-serif;
-    padding-left: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 body{
@@ -303,17 +293,34 @@ body{
     border: none;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 20px;
+    border-radius: 5px;
     margin: 20px;
 }
+
+.botao-modal-cancel{
+    padding: 10px 20px;
+    background-color: var(--cor-texto-barra);
+    color: var(--cor-texto-principal);
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 20px;
+}
+
 
 .botao-modal:hover{
     background-color: var(--cor-hover);
 }
 
+.botao-modal-cancel:hover{
+    background-color: var(--cor-texto-principal);
+    color: var(--cor-texto-barra);
+}
+
 /* Estilo do modal de login */
 #modalLogin {
-    position: absolute;
+    position: fixed; /*fixo na janela para não subir quando rolar a barra de rolagem*/
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -371,13 +378,12 @@ body{
     display: block;
     margin-bottom: 5px;
 }
-
+/*
 .dados-login input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
+}*/
 
