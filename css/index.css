@@ -196,7 +196,7 @@
     background-color: #cacaca;
 }
 
-.input[type="text"] {
+input[type="text"] {
     border: 1px solid #ccc;
     text-align: center;
     width: 40px;
@@ -235,7 +235,7 @@
     align-items: center;
 }
 
-.h2 {
+h2 {
     /*color: #444;*/
     border-bottom: 2px solid #eee;
     color: var(--cor-texto-secundario);
@@ -245,7 +245,7 @@
     margin-right: 10px;
 }
 
-.body{
+body{
     font-family: Arial, sans-serif;
 }
 
@@ -364,7 +364,7 @@
 }
 */
 .dados-login {
-    margin-bottom: 20px;
+   /* margin-bottom: 20px;*/
 }
 
 .dados-login label {
