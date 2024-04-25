@@ -31,3 +31,16 @@ document.getElementById('telefone_celular').addEventListener('input', function (
 });
 
 
+function mascaraCEP(cep) {
+    cep = cep.replace(/\D/g, ''); // Remove qualquer caracter que não seja dígito
+    cep = cep.replace(/^(\d{5})(\d)/, '$1-$2'); // Coloca um hífen após os cinco primeiros dígitos
+    return cep;
+}
+
+document.getElementById('cep').addEventListener('input', function (e) {
+    var input = e.target;
+    var valorFormatado = mascaraCEP(input.value);
+    input.value = valorFormatado;
+});
+
+
