@@ -1,9 +1,6 @@
-#formulario-cadastro{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
+.formulario-cadastro{
     font-size: 12px;
+    margin-top: 40px;
 }
 
 label {
@@ -16,16 +13,32 @@ label {
     padding-top: 10px;
 }
 
-input[type="text"],
-input[type="password"] {
+.endereco {
+    border-style: solid;
+    border-color: #3E5962;
+    border-width: thin;
+    padding: 20px;  /*arrumar isso*/
+}
+
+/* Estilizando o input */
+#numero::-webkit-inner-spin-button,
+#numero::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Oculta as setas no Chrome */
+    margin: 0; /* Remove o espaço entre o input e as setas no Chrome */
+    appearance: none; /* Oculta as setas no Firefox */
+}
+
+
+input {
     width: 100%;
-    padding: 10px;
+    max-width: 1000px;
+ /*   padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     color: var(--cor-texto-principal);
-    font-size: 14px;
+    font-size: 14px;*/
 }
 
