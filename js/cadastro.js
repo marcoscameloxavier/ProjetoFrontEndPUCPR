@@ -44,3 +44,60 @@ document.getElementById('cep').addEventListener('input', function (e) {
 });
 
 
+// API de CEP
+
+function displayErrorModal(message) {
+    document.getElementById('errorMessage').textContent = message;
+    document.getElementById('errorModal').style.display = 'block';
+}
+
+document.getElementById('cep').addEventListener('blur', function() {
+    consultarCEP();
+});
+
+function consultarCEP() {
+    const cep = removerMascaraCEP(document.getElementById('cep').value);
+    if ( cep.length==8 )  {
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
+        try {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar CEP');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('logradouro').value = data.logradouro;
+                    document.getElementById('complemento').value = data.complemento;
+                    document.getElementById('cidade').value = data.localidade;
+                    document.getElementById('bairro').value = data.bairro;
+                    document.getElementById('uf').value = data.uf;
+                })
+                .catch(error => console.error('Erro ao buscar CEP:', error));
+        } catch (error) {
+            console.error('Erro ao buscar CEP:', error);
+            displayErrorModal('Erro ao buscar o CEP. Por favor, tente novamente.');
+        }
+    }
+    /* esse código eu vou retirar no próximo commit.
+    const cep = removerMascaraCEP(document.getElementById('cep').value);
+    console.log(cep);
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('logradouro').value = data.logradouro;
+            document.getElementById('complemento').value = data.complemento;
+            document.getElementById('cidade').value = data.localidade;
+            document.getElementById('bairro').value = data.bairro;
+            document.getElementById('uf').value = data.uf;
+        })
+        .catch(error => console.error('Erro ao buscar CEP:', error)); */
+}
+
+function removerMascaraCEP(cep) {
+    // Remove todos os caracteres que não são dígitos
+    cep = cep.replace(/\D/g, '');
+    return cep;
+}

@@ -58,6 +58,11 @@
         <label for="cidade">Cidade</label>
     </div>
 
+    <div class="form-floating-label">
+        <input type="text" id="uf" name="uf"  required  placeholder=" ">
+        <label for="uf">UF</label>
+    </div>
+
 
     <div class="form-floating-label">
       <input type="text" id="telefone_celular" name="telefone_celular" maxlength="13" required placeholder=" ">
@@ -81,6 +86,14 @@
 
     <button class="botao" id="cadastrar_usuario">Cadastrar Usuario</button>
 
+</div>
+
+<!-- Modal de Erro -->
+<div id="errorModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="errorMessage">Erro ao buscar o CEP. Por favor, tente novamente.</p>
+    </div>
 </div>
 
 </body>
