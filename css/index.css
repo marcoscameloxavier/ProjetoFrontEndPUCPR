@@ -151,6 +151,9 @@
     overflow-y: auto; /* permite rolagem dentro do carrinho */
     display: flex;
     flex-direction: column; /* organiza os filhos do carrinho em coluna */
+
+    box-sizing: border-box; /* Isso garante que o padding seja incluído na largura total */
+    overflow-x: hidden; /* Isso removerá a barra de rolagem horizontal */
 }
 
 .carrinho-lateral.mostrar {
@@ -185,32 +188,34 @@
 }
 
 .total-carrinho {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     font-size: 16px;
-    margin-top: 10px;
-    margin-left: 40px;
     color: var(--cor-texto-secundario);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.total-carrinho div {
+    display: flex;
+    justify-content: space-between; /* Isso irá alinhar um item à esquerda e outro à direita */
+    margin-bottom: 5px; /* Isso adiciona um pequeno espaço entre as linhas, ajuste conforme necessário */
 }
 
 .botoes-carrinho{
-    margin-bottom: 10px;
     display: flex;
-    /*exibir os botoes em coluna e centralizados na div*/
     flex-direction: column;
     align-items: center;
     margin-top: 10px; /* Espaço entre o total e os botões */
+    width: 100%; /* Faz os botões ocuparem a largura total */
 }
 
 .inferior-barra-carrinho{
     background: var(--background-secundario);
     border-top: solid 1px var(--cor-texto-secundario);
-
     position: absolute; /* Posiciona absolutamente dentro do carrinho-lateral */
     bottom: 0; /* Fixa no fundo da div carrinho-lateral */
     left: 0;
     width: 100%; /* Garante que ocupe toda a largura do carrinho-lateral */
+    padding-top: 20px;
 }
 
 .titulo-livro {
@@ -490,6 +495,11 @@
     #termo-pesquisa {
         width: auto; /* ou defina uma largura específica */
         flex-grow: 1; /* Permite que o input cresça para preencher o espaço disponível */
+    }
+
+    .total-carrinho {
+        padding-left: 80px;
+        padding-right: 80px;
     }
 
 }

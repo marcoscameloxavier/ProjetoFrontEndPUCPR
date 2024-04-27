@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/util.css" />
+    <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <script defer src="../js/index.js"></script>
+    <title>Book Store</title>
+</head>
+<body>
+    <div class="barra-principal">
+        <a href="index.html">
+            <img class="logo" src="../img/Logo3.png"/>
+        </a>
+        <span class="titulo">Páginas Infinitas</span>
+        <div class="pesquisar-livros">
+            <input type="text" placeholder="Buscar livro" id="termo-pesquisa"/>
+            <i class="fa-solid fa-magnifying-glass" onclick="pesquisarLivros()"></i>
+        </div>
+        <!-- Menu padrão para desktop -->
+        <nav id="menu-principal">
+            <a href="cadastro.html" onclick="">Cadastro</a>
+            <!-- <a href="#carrinho" onclick="mostrarCarrinho()">Carrinho</a>
+             <a href="#finalizar">Finalizar Compra</a>
+            <a href="#login" onclick="mostrarModalLogin()">Login</a>-->
+        </nav>
+        <!-- Ícone de menu hamburger para dispositivos móveis -->
+        <div class="menu-toggle" onclick="toogleMenu()"><i class="fa-solid fa-bars"></i></div>
+    </div>
+</body>
+</html>

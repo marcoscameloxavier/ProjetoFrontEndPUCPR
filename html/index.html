@@ -39,13 +39,19 @@
            </div>
            <div class="inferior-barra-carrinho">
                <div class="total-carrinho">
-                   <span id="itens-total-carrinho">Subtotal (2 itens) R$ 12,00</span>
-                   <span id="frete-carrinho">Entrega: grátis</span>
-                   <span id="valor-total-carrinho">Total: R$ 0,00</span>
+                   <div>
+                        <span id="label-itens-total-carrinho">Subtotal (2 itens)</span><span id="itens-total-carrinho">R$ 12,00</span>
+                   </div>
+                   <div>
+                        <span id="label-frete-carrinho">Entrega:</span><span id="frete-carrinho">grátis</span>
+                   </div>
+                   <div>
+                        <span id="label-valor-total-carrinho">Total:</span><span id="valor-total-carrinho">R$ 0,00</span>
+                   </div>
                </div>
                <div class="botoes-carrinho">
-                   <button class="botao" id="limpar-carrinho" onclick="mostrarModalLimparCarrinho()">Limpar Carrinho</button>
-                   <button class="botao" id="finalizar-compra">Finalizar Compra</button>
+                   <button class="botao" id="finalizar-compra" onclick="finalizarCompra()">Finalizar Compra</button>
+                   <button class="botao-secundario" id="limpar-carrinho" onclick="mostrarModalLimparCarrinho()">Limpar Carrinho</button>
                </div>
            </div>
        </div>

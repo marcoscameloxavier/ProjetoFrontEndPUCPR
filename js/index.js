@@ -148,7 +148,11 @@ function carregarCarrinho(){
     botaoFinalizarCompra = document.getElementById("finalizar-compra");
     botaoLimparCarrinho = document.getElementById("limpar-carrinho");
     textoTotal = document.getElementById("itens-total-carrinho");
-    textoValorTotal = document.getElementById("valor-total-carrinho")
+    textoValorTotal = document.getElementById("valor-total-carrinho");
+    labelTotal = document.getElementById("label-itens-total-carrinho");
+    labelValorTotal = document.getElementById("label-valor-total-carrinho");
+    textofrete = document.getElementById("frete-carrinho");
+    labelFrete = document.getElementById("label-frete-carrinho");
 
     if (carrinho === null){
         document.getElementById("itens-carrinho").innerHTML = "</br>Você ainda não adicionou nenhum item ao carrinho!";
@@ -156,6 +160,10 @@ function carregarCarrinho(){
         botaoLimparCarrinho.style.display = "none";
         textoTotal.style.display = "none";
         textoValorTotal.style.display = "none";
+        labelTotal.style.display = "none";
+        labelValorTotal.style.display = "none";
+        textofrete.style.display = "none";
+        labelFrete.style.display = "none";
     }
     else{
         document.getElementById("itens-carrinho").innerHTML = "";
@@ -163,6 +171,10 @@ function carregarCarrinho(){
         botaoLimparCarrinho.style.display = "block";
         textoTotal.style.display = "block";
         textoValorTotal.style.display = "block";
+        labelTotal.style.display = "block";
+        labelValorTotal.style.display = "block";
+        textofrete.style.display = "block";
+        labelFrete.style.display = "block";
 
         for (var i = 0; i < carrinho.length; i++) {
             var itemCarrinho = `
@@ -187,8 +199,6 @@ function carregarCarrinho(){
 function limparCarrinho(){
     localStorage.removeItem("carrinhoLivros");
     carregarCarrinho();
-    document.getElementById("valor-total-carrinho").innerHTML = `Valor total do pedido: R$ 0,00`;
-    document.getElementById("itens-total-carrinho").innerHTML = `Subtotal (0 itens) R$ 0,00`;
     fecharModalLimparCarrinho();
 }
 
@@ -234,25 +244,22 @@ function diminuirQuantidade(id) {
 
 function ajustarPrecoTotaleProdutos() {
     var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
-    if (carrinho === null) {
-        document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
-        document.getElementById("itens-total-carrinho").innerHTML = `Subtotal (0 itens): 0`;
-    }
-    else {
-    var total = 0;
-    var totalprodutos = 0;
-    for (var i = 0; i < carrinho.length; i++) {
-        total += carrinho[i].quantidade * carrinho[i].preco;
-        totalprodutos += carrinho[i].quantidade;
-    }
-    /*total = total.toFixed(2);*/
-    // Formata o preço para o formato de moeda brasileiro
-    var precoFormatado = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    }).format(total);
-    document.getElementById("itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens) ${precoFormatado}`;
-    document.getElementById("valor-total-carrinho").innerHTML = `Total: ${precoFormatado}`;
+    if (carrinho != null) {
+        var total = 0;
+        var totalprodutos = 0;
+        for (var i = 0; i < carrinho.length; i++) {
+            total += carrinho[i].quantidade * carrinho[i].preco;
+            totalprodutos += carrinho[i].quantidade;
+        }
+        /*total = total.toFixed(2);*/
+        // Formata o preço para o formato de moeda brasileiro
+        var precoFormatado = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(total);
+        document.getElementById("label-itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens)`;
+        document.getElementById("itens-total-carrinho").innerHTML = `${precoFormatado}`;
+        document.getElementById("valor-total-carrinho").innerHTML = `${precoFormatado}`;
     }
 }
 
@@ -317,4 +324,9 @@ window.addEventListener('resize', function() {
         }
     }
 });
+
+function finalizarCompra() {
+// redireciona para compra.html
+    window.location.href = "compra.html";
+}
 
