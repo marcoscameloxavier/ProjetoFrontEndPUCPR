@@ -1,6 +1,7 @@
 .formulario-cadastro{
     font-size: 12px;
     margin-top: 40px;
+    padding: 10px;
 }
 
 label {
@@ -41,4 +42,5 @@ input {
     color: var(--cor-texto-principal);
     font-size: 14px;*/
 }
+
 

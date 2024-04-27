@@ -6,6 +6,14 @@
     --fonte-principal-barras: #3E5962;
     --cor-hover: #85a99d;
 }
+
+html, body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+}
+
 .barra-principal {
     background-color: var(--cor-principal-barras);
     color: var(--cor-texto-barra);
@@ -13,7 +21,7 @@
     justify-content: flex-start; /* Alinha os itens ao início do container */
     padding: 10px;
     align-items: center;
-    margin:0px;
+    margin:0;
     font-family: Arial, sans-serif;
     font-size: 18px;
     height: 60px;

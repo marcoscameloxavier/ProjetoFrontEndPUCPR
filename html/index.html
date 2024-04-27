@@ -9,21 +9,23 @@
        </head>
    <body>
      <div class="barra-principal">
-         <img class="logo" src="../img/Logo3.png">Páginas Infinitas</img>
+         <a href="index.html">
+            <img class="logo" src="../img/Logo3.png"/>
+         </a>
+         <span class="titulo">Páginas Infinitas</span>
          <div class="pesquisar-livros">
              <input type="text" placeholder="Buscar livro" id="termo-pesquisa"/>
              <i class="fa-solid fa-magnifying-glass" onclick="pesquisarLivros()"></i>
          </div>
          <!-- Menu padrão para desktop -->
-         <nav>
-             <a href="#login" onclick="mostrarModalLogin()">Login</a>
+         <nav id="menu-principal">
              <a href="cadastro.html" onclick="">Cadastro</a>
              <a href="#carrinho" onclick="mostrarCarrinho()">Carrinho</a>
-             <a href="#finalizar">Finalizar Compra</a>
-             <a href="#sair">Sair</a>
+             <!--<a href="#finalizar">Finalizar Compra</a>-->
+             <a href="#login" onclick="mostrarModalLogin()">Login</a>
          </nav>
          <!-- Ícone de menu hamburger para dispositivos móveis -->
-         <!-- <div class="menu-toggle">☰</div>-->
+         <div class="menu-toggle" onclick="toogleMenu()"><i class="fa-solid fa-bars"></i></div>
       </div>
        <div id="livros"></div>
 
@@ -35,12 +37,17 @@
            <div class="itens-carrinho" id="itens-carrinho">
                <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
            </div>
-           <div class="total-carrinho">
-               <span id="itens-total-carrinho">Total de produtos: 0</span>
-               <span id="valor-total-carrinho">Total: R$ 0,00</span>
+           <div class="inferior-barra-carrinho">
+               <div class="total-carrinho">
+                   <span id="itens-total-carrinho">Subtotal (2 itens) R$ 12,00</span>
+                   <span id="frete-carrinho">Entrega: grátis</span>
+                   <span id="valor-total-carrinho">Total: R$ 0,00</span>
+               </div>
+               <div class="botoes-carrinho">
+                   <button class="botao" id="limpar-carrinho" onclick="mostrarModalLimparCarrinho()">Limpar Carrinho</button>
+                   <button class="botao" id="finalizar-compra">Finalizar Compra</button>
+               </div>
            </div>
-           <button class="botao" id="limpar-carrinho" onclick="mostrarModalLimparCarrinho()">Limpar Carrinho</button>
-           <button class="botao" id="finalizar-compra">Finalizar Compra</button>
        </div>
 
          <!-- Modal de confirmação para limpar o carrinho -->
@@ -73,9 +80,9 @@
                    </div>
                    <div>
                       <button class="botao" id="efetuar-login" onclick="login()">Efetuar Login na Conta</button>
-                      <!--<br>
-                      Não tem cadastro?<br>-->
-                      <button class="botao-secundario" id="efetuar-cadastro" onclick="cadastro()">Efetuar Cadastro</button>
+                       <a href="cadastro.html">
+                        <button class="botao-secundario" id="efetuar-cadastro" onclick="cadastro()">Efetuar Cadastro</button>
+                       </a>
                    </div>
                </div>
             </div>

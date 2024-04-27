@@ -187,8 +187,8 @@ function carregarCarrinho(){
 function limparCarrinho(){
     localStorage.removeItem("carrinhoLivros");
     carregarCarrinho();
-    document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
-    document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: 0`;
+    document.getElementById("valor-total-carrinho").innerHTML = `Valor total do pedido: R$ 0,00`;
+    document.getElementById("itens-total-carrinho").innerHTML = `Subtotal (0 itens) R$ 0,00`;
     fecharModalLimparCarrinho();
 }
 
@@ -236,7 +236,7 @@ function ajustarPrecoTotaleProdutos() {
     var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
     if (carrinho === null) {
         document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ 0,00`;
-        document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: 0`;
+        document.getElementById("itens-total-carrinho").innerHTML = `Subtotal (0 itens): 0`;
     }
     else {
     var total = 0;
@@ -245,9 +245,14 @@ function ajustarPrecoTotaleProdutos() {
         total += carrinho[i].quantidade * carrinho[i].preco;
         totalprodutos += carrinho[i].quantidade;
     }
-    total = total.toFixed(2);
-    document.getElementById("itens-total-carrinho").innerHTML = `Total de produtos: ${totalprodutos}`;
-    document.getElementById("valor-total-carrinho").innerHTML = `Total: R$ ${total.replace('.', ',')}`;
+    /*total = total.toFixed(2);*/
+    // Formata o preço para o formato de moeda brasileiro
+    var precoFormatado = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(total);
+    document.getElementById("itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens) ${precoFormatado}`;
+    document.getElementById("valor-total-carrinho").innerHTML = `Total: ${precoFormatado}`;
     }
 }
 
@@ -293,3 +298,23 @@ function cadastro() {
 // Adiciona um ouvinte de eventos ao botão de fechar
 var botaoFecharLogin = document.getElementById('fechar-login');
 botaoFecharLogin.addEventListener('click', fecharModalLogin);
+
+//Evento do menu sanduiche (toogle)
+function toogleMenu() {
+    var menu = document.getElementById('menu-principal');
+    var isMenuVisible = menu.style.display === 'flex';
+    menu.style.display = isMenuVisible ? 'none' : 'flex';
+}
+
+// Event listener para redimensionamento da janela
+window.addEventListener('resize', function() {
+    var menu = document.getElementById('menu-principal');
+    if (window.innerWidth > 600) {
+        menu.style.display = ''; // Remove o estilo inline quando a tela é grande
+    } else {
+        if (menu.style.display === '') {
+            menu.style.display = 'none'; // Garante que o menu fique escondido se a tela for redimensionada para menos de 900px
+        }
+    }
+});
+

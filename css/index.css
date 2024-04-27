@@ -5,6 +5,7 @@
     --cor-texto-barra: #FCF9F6;
     --fonte-principal-barras: #3E5962;
     --cor-hover: #85a99d;
+    --background-secundario:#F0F0F0;
 }
 
   #divConteudo{
@@ -113,11 +114,22 @@
     font-size: 16px;
 }
 
+.pesquisar-livros {
+    flex-grow: 1; /* permite que a barra de pesquisa cresça */
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap; /* Adicione esta linha */
+    min-height: 50px; /* Ajuste conforme a altura desejada */
+    margin-right: 30px;
+}
+
 #termo-pesquisa{
     height: 30px;
     font-family: Arial, sans-serif;
+    margin-right: 10px;
     font-size: 16px;
-    width: 300px;
+    /*width: 300px;*/
+    flex-grow: 1; /* permite que o input cresça */
     text-align: left;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -135,6 +147,10 @@
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     transition: right 0.3s; /* Para animar a barra lateral */
     z-index: 100; /* Garante que ela fique acima de outros elementos */
+
+    overflow-y: auto; /* permite rolagem dentro do carrinho */
+    display: flex;
+    flex-direction: column; /* organiza os filhos do carrinho em coluna */
 }
 
 .carrinho-lateral.mostrar {
@@ -154,19 +170,47 @@
 .itens-carrinho {
     padding-left: 20px;
     padding-right: 20px;
-    max-height: 700px;
-    overflow-y: auto;
+    overflow-y: auto; /* Adiciona barra de rolagem se necessário */
+    flex-grow: 1; /* faz o conteúdo dos itens crescer e tomar o espaço disponível */
 }
 
 .item-carrinho {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    margin-bottom: 15px;
     padding: 10px;
     background-color: #f2f2f2;
     border-radius: 4px;
+}
+
+.total-carrinho {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 40px;
+    color: var(--cor-texto-secundario);
+}
+
+.botoes-carrinho{
+    margin-bottom: 10px;
+    display: flex;
+    /*exibir os botoes em coluna e centralizados na div*/
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Espaço entre o total e os botões */
+}
+
+.inferior-barra-carrinho{
+    background: var(--background-secundario);
+    border-top: solid 1px var(--cor-texto-secundario);
+
+    position: absolute; /* Posiciona absolutamente dentro do carrinho-lateral */
+    bottom: 0; /* Fixa no fundo da div carrinho-lateral */
+    left: 0;
+    width: 100%; /* Garante que ocupe toda a largura do carrinho-lateral */
 }
 
 .titulo-livro {
@@ -203,16 +247,6 @@
     color: var(--cor-texto-principal);
 }
 
-.item-carrinho {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-radius: 4px;
-}
-
 .capa-livro {
     width: 60px; /* Ou a largura desejada para a miniatura */
     height: auto;
@@ -233,18 +267,6 @@
 .quantidade-livro {
     display: flex;
     align-items: center;
-}
-
-body{
-    font-family: Arial, sans-serif;
-}
-
-.total-carrinho {
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 10px;
-    margin-left: 20px;
-    color: var(--cor-texto-secundario);
 }
 
 /* Estilo do modal */
@@ -386,4 +408,91 @@ body{
     border: 1px solid #ccc;
     border-radius: 5px;
 }*/
+
+/* Responsividade */
+
+/* Estilos para o menu hamburger (dispositivos móveis) */
+.menu-toggle {
+    display: none;
+    margin-right: 10px;
+}
+
+.menu-toggle:hover {
+    cursor: pointer;
+}
+
+/*Tamanho intermediário, sumir o nome da página*/
+@media (min-width: 600px){
+    .titulo{
+        display: none;
+    }
+    #termo-pesquisa{
+        width: 200px;
+    }
+}
+
+/*Desktop*/
+@media (min-width: 900px){
+    .logo{
+        display: block;
+    }
+
+    .menu-toggle{
+        display: none;
+    }
+    .titulo{
+        display: block;
+    }
+    #termo-pesquisa{
+        width: 300px;
+    }
+}
+
+
+/* Media Query para telas menores - exibe o menu hamburger e oculta o menu padrão */
+@media (max-width: 600px) {
+    .logo{
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .titulo{
+        display: none;
+    }
+    nav {
+        display: none; /* Esconde o menu */
+        flex-direction: column;
+        width: 100%; /* Opcional: faz com que o menu utilize toda a largura disponível */
+        position: absolute; /* Faz com que o menu suspenso não afete outros elementos */
+        top: 83px; /* Ajuste conforme a altura do seu menu-toggle */
+        left: 0;
+        background-color: var(--cor-principal-barras);
+        z-index: 1; /* Garante que o menu fique acima dos outros elementos */
+    }
+
+    nav a {
+        display: block; /* Faz com que os links preencham a largura do menu */
+        text-align: left; /* Alinha o texto dos links à esquerda */
+        padding: 10px; /* Espaçamento interno para cada link */
+    }
+
+    .carrinho-lateral {
+        width: 100%; /* Faz o carrinho ocupar toda a largura da tela */
+        right: -100%; /* Esconde o carrinho deslocando para a direita */
+    }
+
+    /* Oculta a barra de rolagem da barra do carrinho */
+    .itens-carrinho::-webkit-scrollbar {
+        display: none;  /* Para Chrome, Safari e Edge */
+    }
+
+    #termo-pesquisa {
+        width: auto; /* ou defina uma largura específica */
+        flex-grow: 1; /* Permite que o input cresça para preencher o espaço disponível */
+    }
+
+}
+
+
 
