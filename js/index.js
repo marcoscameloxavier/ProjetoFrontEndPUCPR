@@ -1,5 +1,9 @@
 window.onload = async function() {
     carregarLivros('html');
+    if(localStorage.getItem('exibirCarrinho') === 'true') {
+        mostrarCarrinho();
+        localStorage.removeItem('exibirCarrinho');
+    }
 }
 
 async function pesquisarLivros() {

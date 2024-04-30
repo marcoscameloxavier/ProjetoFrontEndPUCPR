@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <script defer src="../js/index.js"></script>
+    <script defer src="../js/compra.js"></script>
     <title>Book Store</title>
 </head>
 <body>
@@ -20,12 +21,26 @@
         <!-- Menu padrão para desktop -->
         <nav id="menu-principal">
             <a href="cadastro.html" onclick="">Cadastro</a>
-            <!-- <a href="#carrinho" onclick="mostrarCarrinho()">Carrinho</a>
-             <a href="#finalizar">Finalizar Compra</a>
+            <a href="#carrinho" onclick="mostrarCarrinhoPaginaIncial()">Carrinho</a>
+            <!--  <a href="#finalizar">Finalizar Compra</a>
             <a href="#login" onclick="mostrarModalLogin()">Login</a>-->
         </nav>
         <!-- Ícone de menu hamburger para dispositivos móveis -->
         <div class="menu-toggle" onclick="toogleMenu()"><i class="fa-solid fa-bars"></i></div>
+    </div>
+    <div class="itens-carrinho" id="itens-carrinho">
+        <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
+    </div>
+    <div class="total-carrinho">
+        <div>
+            <span id="label-itens-total-carrinho">Subtotal (2 itens)</span><span id="itens-total-carrinho">R$ 12,00</span>
+        </div>
+        <div>
+            <span id="label-frete-carrinho">Entrega:</span><span id="frete-carrinho">grátis</span>
+        </div>
+        <div>
+            <span id="label-valor-total-carrinho">Total:</span><span id="valor-total-carrinho">R$ 0,00</span>
+        </div>
     </div>
 </body>
 </html>
