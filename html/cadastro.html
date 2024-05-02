@@ -32,8 +32,9 @@
     </div>
 
     <div class="form-floating-label">
-        <input type="text" id="cep" name="cep" maxlength="9" required placeholder=" ">
+        <input type="text" id="cep" name="cep" maxlength="9" required placeholder=" " onfocus="limparErroCep()">
         <label for="cep">CEP</label>
+        <label for="cep" id="errocep">CEP INVALIDO</label>
     </div>
 
     <div class="form-floating-label">

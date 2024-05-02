@@ -55,6 +55,12 @@ document.getElementById('cep').addEventListener('blur', function() {
     consultarCEP();
 });
 
+function limparErroCep() {
+    document.getElementById('errocep').style.display = 'none';
+    document.getElementById('cep').style.borderColor = '#85a99d';
+
+}
+
 function consultarCEP() {
     const cep = removerMascaraCEP(document.getElementById('cep').value);
     if ( cep.length==8 )  {
@@ -68,11 +74,21 @@ function consultarCEP() {
                     return response.json();
                 })
                 .then(data => {
+                    if (data.logradouro===undefined) {
+                        //aqui é o tratamento de erro
+                        document.getElementById('cep').value = '';
+                        document.getElementById('cep').style.borderColor = 'red';
+                        document.getElementById('errocep').style.display = 'block';
+                    }
+                    else{
+                    document.getElementById('cep').style.borderColor = '#85a99d';
+                    document.getElementById('errocep').style.display = 'none';
                     document.getElementById('logradouro').value = data.logradouro;
                     document.getElementById('complemento').value = data.complemento;
                     document.getElementById('cidade').value = data.localidade;
                     document.getElementById('bairro').value = data.bairro;
                     document.getElementById('uf').value = data.uf;
+                    }
                 })
                 .catch(error => console.error('Erro ao buscar CEP:', error));
         } catch (error) {
