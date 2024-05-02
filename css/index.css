@@ -489,7 +489,7 @@
 
     /* Oculta a barra de rolagem da barra do carrinho */
     .itens-carrinho::-webkit-scrollbar {
-        display: none;  /* Para Chrome, Safari e Edge */
+        display: none;
     }
 
     #termo-pesquisa {

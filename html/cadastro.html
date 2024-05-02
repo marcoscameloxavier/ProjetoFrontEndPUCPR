@@ -11,7 +11,7 @@
     <div class="logo">Cadastro de clientes</div>
 </div>
 
-<div class="formulario-cadastro" >
+<form class="formulario-cadastro" >
 
     <div class="form-floating-label">
         <input type="text" id="nome" name="nome" size="150" maxlength="200" required placeholder=" ">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="form-floating-label">
-        <input type="text" id="email" name="email" size="200" required  placeholder=" ">
+        <input type="email" id="email" name="email" size="200" required  placeholder=" ">
         <label for="email">Email</label>
     </div>
 
@@ -84,9 +84,9 @@
         <label for="senha">Confirmar Senha</label>
     </div>
 
-    <button class="botao" id="cadastrar_usuario">Cadastrar Usuario</button>
+    <button class="botao" type="submit" id="cadastrar_usuario">Cadastrar Usuario</button>
 
-</div>
+</form>
 
 <!-- Modal de Erro -->
 <div id="errorModal" class="modal" style="display: none;">
