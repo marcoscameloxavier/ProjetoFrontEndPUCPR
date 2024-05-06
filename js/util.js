@@ -13,7 +13,7 @@ function ajustarPrecoTotaleProdutos() {
             style: 'currency',
             currency: 'BRL'
         }).format(total);
-        document.getElementById("label-itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens)`;
+        document.getElementById("label-itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens):`;
         document.getElementById("itens-total-carrinho").innerHTML = `${precoFormatado}`;
         document.getElementById("valor-total-carrinho").innerHTML = `${precoFormatado}`;
     }

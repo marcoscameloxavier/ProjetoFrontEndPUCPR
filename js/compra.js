@@ -9,8 +9,8 @@ function carregarCarrinhoCompra(){
         for (var i = 0; i < carrinho.length; i++) {
             var itemCarrinho = `
                 <div class="item-carrinho">
-                   <img class="capa-livro" src="${carrinho[i].src}">
-                   <div class="info-livro">
+                  <!-- <img class="capa-livro" src="${carrinho[i].src}">-->
+                   <div class="info-livro-resumida">
                        <span class="titulo-livro">${carrinho[i].titulo}</span>
                        <span class="preco-livro">Preço unitário: R$ ${carrinho[i].preco}</span>
                        <span class="preco-livro">Total de itens: ${carrinho[i].quantidade}</span>

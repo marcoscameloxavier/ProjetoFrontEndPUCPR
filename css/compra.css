@@ -1,9 +1,131 @@
 .total-carrinho{
     margin-top: 20px;
+    padding: 0px;
+    margin-left: 30px;
+    margin-bottom: 10px;
 }
 
 .total-carrinho div {
     display: flex;
     justify-content: start; /* Isso irá alinhar um item à esquerda e outro à direita */
     margin-bottom: 5px; /* Isso adiciona um pequeno espaço entre as linhas, ajuste conforme necessário */
+}
+
+
+.container-pagamento {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 800px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ddd; /* Adiciona uma borda sutil */
+    position: relative;
+}
+
+
+
+.opcao-pagamento:hover {
+    background: #f0f0f0;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.botao-finalizar {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #3E5962;
+    color: #FCF9F6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.botao-finalizar:hover {
+    background-color: #85a99d;
+}
+
+.cartao-icons img {
+    height: 24px;
+    margin-right: 5px;
+}
+
+.cartao-icons span, .boleto-icon, .pix-icon {
+    font-weight: bold;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-label {
+    flex-grow: 1;
+    margin-left: 10px;
+    background: #f6f6f6;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Adiciona uma sombra sutil */
+}
+
+.opcoes-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.opcao-pagamento {
+    display: flex;
+    align-items: center;
+    background: #f6f6f6;  /* Background para o label */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.radio-container {
+    flex-grow: 1;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.cartao-icons img, .boleto-icon, .pix-icon {
+    margin-right: 5px; /* Espaço entre ícones */
+}
+
+#itens-total-carrinho{
+    margin-left: 20px;
+}
+
+#frete-carrinho{
+    margin-left: 95px;
+}
+
+#valor-total-carrinho{
+    margin-left: 115px;
+}
+
+.itens-carrinho{
+    max-width: 840px;
+}
+
+.info-livro-resumida {
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.titulo-livro{
+    font-weight: bold;
 }

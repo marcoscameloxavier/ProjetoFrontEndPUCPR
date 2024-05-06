@@ -30,15 +30,53 @@
         <!-- Ícone de menu hamburger para dispositivos móveis -->
         <div class="menu-toggle" onclick="toogleMenu()"><i class="fa-solid fa-bars"></i></div>
     </div>
+    <div class="container-pagamento">
+        <h1>Pagamento</h1>
+        <form action="#">
+            <div class="opcoes-pagamento">
+                <label class="opcao-pagamento">
+                    <input type="radio" name="pagamento" value="cartao" checked>
+                    <span class="radio-container">
+                        <div class="cartao-icons">
+                            <img src="../img/visa.png" alt="Visa">
+                            <img src="../img/master.png" alt="MasterCard">
+                            <img src="../img/elo.png" alt="Elo">
+                            <img src="../img/hipercard.png" alt="Hipercard">
+                            <span>...</span>
+                        </div>
+                    </span>
+                </label>
+                <label class="opcao-pagamento">
+                    <input type="radio" name="pagamento" value="boleto">
+                    <span class="radio-container">
+                        <div class="cartao-icons">
+                            <img src="../img/boleto.png" alt="Boleto">
+                            <span>Boleto Bancário</span>
+                        </div>
+                    </span>
+                </label>
+                <label class="opcao-pagamento">
+                    <input type="radio" name="pagamento" value="pix">
+                    <span class="radio-container">
+                        <div class="cartao-icons">
+                            <img src="../img/pix.png" alt="PIX">
+                        </div>
+                    </span>
+                </label>
+            </div>
+            <button type="submit" class="botao-finalizar">Finalizar compra</button>
+        </form>
+    </div>
+    <h2>Resumo do Pedido</h2>
     <div class="total-carrinho">
         <div>
-            <span id="label-itens-total-carrinho">Subtotal (2 itens)</span><span id="itens-total-carrinho">R$ 12,00</span>
+            <span id="label-itens-total-carrinho">Subtotal (2 itens): </span><span id="itens-total-carrinho">R$ 12,00</span>
         </div>
         <div>
-            <span id="label-frete-carrinho">Entrega:</span><span id="frete-carrinho">grátis</span>
+            <span id="label-frete-carrinho">Entrega: </span><span id="frete-carrinho">grátis</span>
         </div>
         <div>
-            <span id="label-valor-total-carrinho">Total:</span><span id="valor-total-carrinho">R$ 0,00</span>
+            <span id="label-valor-total-carrinho">Total: </span><span id="valor-total-carrinho">R$ 0,00</span>
         </div>
     </div>
     <div class="itens-carrinho" id="itens-carrinho">
