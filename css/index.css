@@ -175,6 +175,9 @@
     padding-right: 20px;
     overflow-y: auto; /* Adiciona barra de rolagem se necessário */
     flex-grow: 1; /* faz o conteúdo dos itens crescer e tomar o espaço disponível */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+    margin-bottom: 200px;
 }
 
 .item-carrinho {
@@ -456,15 +459,18 @@
 
 /* Media Query para telas menores - exibe o menu hamburger e oculta o menu padrão */
 @media (max-width: 600px) {
-    .logo{
+    .logo {
         display: none;
     }
+
     .menu-toggle {
         display: block;
     }
-    .titulo{
+
+    .titulo {
         display: none;
     }
+
     nav {
         display: none; /* Esconde o menu */
         flex-direction: column;
@@ -487,10 +493,12 @@
         right: -100%; /* Esconde o carrinho deslocando para a direita */
     }
 
-    /* Oculta a barra de rolagem da barra do carrinho */
-    .itens-carrinho::-webkit-scrollbar {
-        display: none;
+    /* Oculta a barra de rolagem da barra do carrinho*/
+    .itens-carrinho {
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
     }
+
 
     #termo-pesquisa {
         width: auto; /* ou defina uma largura específica */
@@ -501,8 +509,6 @@
         padding-left: 80px;
         padding-right: 80px;
     }
-
 }
-
 
 

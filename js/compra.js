@@ -21,6 +21,7 @@ function carregarCarrinhoCompra(){
             document.getElementById("itens-carrinho").innerHTML += itemCarrinho;
         }
     }
+    ajustarPrecoTotaleProdutos()
 }
 
 function mostrarCarrinhoPaginaIncial(){

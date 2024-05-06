@@ -59,9 +59,10 @@ async function carregarLivros(query) {
                 titulo = titulo.slice(0, 65);
                 titulo += "...";
             }
+            // evitar erro quando existe aspas simples no nome do livro para não quebrar a string quando chamar a função salvarItemCarrinho
+            var tituloEscapado = titulo.replace(/'/g, "\\'");
 
             var preco = gerarPrecoAleatorio();
-
 
             var livro = `
           <div class="card">
@@ -78,7 +79,7 @@ async function carregarLivros(query) {
                    </div>
         
                <div class="card-rodape">
-                   <button class="botao" onclick="salvarItemCarrinho('${book.id}','${titulo}',${preco},'${src}')">Adicionar ao carrinho</button>
+                   <button class="botao" onclick="salvarItemCarrinho('${book.id}','${tituloEscapado}',${preco},'${src}')">Adicionar ao carrinho</button>
                </div>
            </div>
         `
@@ -246,26 +247,7 @@ function diminuirQuantidade(id) {
     }
 }
 
-function ajustarPrecoTotaleProdutos() {
-    var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
-    if (carrinho != null) {
-        var total = 0;
-        var totalprodutos = 0;
-        for (var i = 0; i < carrinho.length; i++) {
-            total += carrinho[i].quantidade * carrinho[i].preco;
-            totalprodutos += carrinho[i].quantidade;
-        }
-        /*total = total.toFixed(2);*/
-        // Formata o preço para o formato de moeda brasileiro
-        var precoFormatado = new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        }).format(total);
-        document.getElementById("label-itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens)`;
-        document.getElementById("itens-total-carrinho").innerHTML = `${precoFormatado}`;
-        document.getElementById("valor-total-carrinho").innerHTML = `${precoFormatado}`;
-    }
-}
+
 
 // Função para abrir o modal de confirmação de limpeza do carrinho
 function mostrarModalLimparCarrinho() {

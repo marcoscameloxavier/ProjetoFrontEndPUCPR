@@ -1,0 +1,9 @@
+.total-carrinho{
+    margin-top: 20px;
+}
+
+.total-carrinho div {
+    display: flex;
+    justify-content: start; /* Isso irá alinhar um item à esquerda e outro à direita */
+    margin-bottom: 5px; /* Isso adiciona um pequeno espaço entre as linhas, ajuste conforme necessário */
+}

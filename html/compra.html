@@ -4,8 +4,10 @@
     <link rel="stylesheet" href="../css/util.css" />
     <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/compra.css" />
     <script defer src="../js/index.js"></script>
     <script defer src="../js/compra.js"></script>
+    <script defer src="../js/util.js"></script>
     <title>Book Store</title>
 </head>
 <body>
@@ -28,9 +30,6 @@
         <!-- Ícone de menu hamburger para dispositivos móveis -->
         <div class="menu-toggle" onclick="toogleMenu()"><i class="fa-solid fa-bars"></i></div>
     </div>
-    <div class="itens-carrinho" id="itens-carrinho">
-        <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
-    </div>
     <div class="total-carrinho">
         <div>
             <span id="label-itens-total-carrinho">Subtotal (2 itens)</span><span id="itens-total-carrinho">R$ 12,00</span>
@@ -41,6 +40,9 @@
         <div>
             <span id="label-valor-total-carrinho">Total:</span><span id="valor-total-carrinho">R$ 0,00</span>
         </div>
+    </div>
+    <div class="itens-carrinho" id="itens-carrinho">
+        <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
     </div>
 </body>
 </html>
