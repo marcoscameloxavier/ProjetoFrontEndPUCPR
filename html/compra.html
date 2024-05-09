@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/util.css" />
     <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
     <link rel="stylesheet" href="../css/index.css" />
@@ -36,9 +37,9 @@
         <form action="#">
             <div class="opcoes-pagamento">
                 <label class="opcao-pagamento">
-                    <input type="radio" name="pagamento" value="cartao" checked>
+                    <input type="radio" name="pagamento" value="cartao" onchange="mostrarPagamentoCartao()">
                     <span class="radio-container">
-                        <div class="cartao-icons">
+                        <div class="pagamento-icons">
                             <img src="../img/visa.png" alt="Visa">
                             <img src="../img/master.png" alt="MasterCard">
                             <img src="../img/elo.png" alt="Elo">
@@ -47,28 +48,58 @@
                         </div>
                     </span>
                 </label>
+                <div class="pagamento-cartao" id="div-pagamento-cartao">
+                    <div class="form-floating-label">
+                        <input type="text" id="numero-cartao" name="numero-cartao" required placeholder=" ">
+                        <label for="numero-cartao">Número do cartão</label>
+                    </div>
+                    <div class="form-floating-label">
+                        <input type="text" id="nome-cartao" name="nome-cartao" required placeholder=" ">
+                        <label for="nome-cartao">Nome do titular</label>
+                    </div>
+                    <div class="form-floating-label">
+                        <input type="text" id="validade-cartao" name="validade-cartao" required placeholder=" ">
+                        <label for="validade-cartao">Validade</label>
+                    </div>
+                    <div class="form-floating-label">
+                        <input type="text" id="cvv-cartao" name="cvv-cartao" required placeholder=" ">
+                        <label for="cvv-cartao">CVV</label>
+                    </div>
+                </div>
                 <label class="opcao-pagamento">
-                    <input type="radio" name="pagamento" value="boleto">
+                    <input type="radio" name="pagamento" value="boleto" onclick="mostrarPagamentoBoleto()">
                     <span class="radio-container">
-                        <div class="cartao-icons">
+                        <div class="pagamento-icons">
                             <img src="../img/boleto.png" alt="Boleto">
                             <span>Boleto Bancário</span>
                         </div>
                     </span>
                 </label>
+                <div class="pagamento-boleto" id="div-pagamento-boleto">
+                    <p>Seu boleto será gerado após a confirmação da compra.</p>
+                </div>
                 <label class="opcao-pagamento">
                     <input type="radio" name="pagamento" value="pix">
                     <span class="radio-container">
-                        <div class="cartao-icons">
+                        <div class="pagamento-icons">
                             <img src="../img/pix.png" alt="PIX">
                         </div>
                     </span>
                 </label>
+                <div class="pagamento-pix" id="div-pagamento-pix" onchange="mostrarPagamentoPix()">
+                    <img src="../img/qrcode.svg" class="qr-code">
+                    <button class="botao" onclick="copiarPix()">Copiar código Pix</button>
+                    <ol start="1">
+                        <li> Abra o app do seu banco, vá até o ambiente Pix e escolha pagar com QR Code ou Pix Copia e Cola.</li>
+                        <li> Escaneie ou cole o código Pix. Confira as informações e finalize o pagamento.</li>
+                        <li> Após a aprovação do pagamento, seu pedido será concluído automaticamente.</li>
+                    </ol>
+                </div>
             </div>
             <button type="submit" class="botao-finalizar">Finalizar compra</button>
         </form>
     </div>
-    <h2>Resumo do Pedido</h2>
+    <h3>Resumo do Pedido</h3>
     <div class="total-carrinho">
         <div>
             <span id="label-itens-total-carrinho">Subtotal (2 itens): </span><span id="itens-total-carrinho">R$ 12,00</span>

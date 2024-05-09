@@ -50,12 +50,12 @@ input[type="radio"] {
     background-color: #85a99d;
 }
 
-.cartao-icons img {
+.pagamento-icons img {
     height: 24px;
     margin-right: 5px;
 }
 
-.cartao-icons span, .boleto-icon, .pix-icon {
+.pagamento-icons span, .boleto-icon, .pix-icon {
     font-weight: bold;
 }
 
@@ -100,7 +100,7 @@ input[type="radio"] {
     align-items: center;
 }
 
-.cartao-icons img, .boleto-icon, .pix-icon {
+.pagamento-icons img, .boleto-icon, .pix-icon {
     margin-right: 5px; /* Espaço entre ícones */
 }
 
@@ -128,4 +128,33 @@ input[type="radio"] {
 
 .titulo-livro{
     font-weight: bold;
+}
+
+.pagamento-cartao, .pagamento-boleto{
+    display: none;
+}
+
+.pagamento-pix{
+    display: none;
+}
+
+h3{
+    margin-left: 25px;
+}
+
+.qr-code{
+    width: 250px;
+}
+
+.pagamento-pix{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagamento-pix ol li{
+    color: #172930;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
 }

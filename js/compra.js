@@ -28,3 +28,20 @@ function mostrarCarrinhoPaginaIncial(){
     localStorage.setItem('exibirCarrinho', 'true');
     window.location.href = "index.html";
 }
+
+function mostrarPagamentoCartao(){
+    document.getElementById("div-pagamento-cartao").style.display = "block";
+    document.getElementById("div-pagamento-boleto").style.display = "none";
+    document.getElementById("div-pagamento-pix").style.display = "none";
+}
+function mostrarPagamentoBoleto(){
+    document.getElementById("div-pagamento-cartao").style.display = "none";
+    document.getElementById("div-pagamento-boleto").style.display = "block";
+    document.getElementById("div-pagamento-pix").style.display = "none";
+}
+
+function mostrarPagamentoPix(){
+    document.getElementById("div-pagamento-cartao").style.display = "none";
+    document.getElementById("div-pagamento-boleto").style.display = "none";
+    document.getElementById("div-pagamento-pix").style.display = "block";
+}
