@@ -45,3 +45,43 @@ function mostrarPagamentoPix(){
     document.getElementById("div-pagamento-boleto").style.display = "none";
     document.getElementById("div-pagamento-pix").style.display = "block";
 }
+
+document.getElementById('numero-cartao').addEventListener('input', function (e) {
+    var input = e.target;
+    var valorFormatado = mascaraCartao(input.value);
+    input.value = valorFormatado;
+});
+
+
+function mascaraCartao(numeroCartao) {
+    numeroCartao = numeroCartao.replace(/\D/g, ''); // Remove qualquer caracter que não seja dígito
+    numeroCartao = numeroCartao.replace(/(\d{4})(\d)/, '$1 4'); // Coloca um espaco depois do quarto dígito
+    numeroCartao = numeroCartao.replace(/(\d{4})(\d)/, '$1 4'); // Coloca um espaco depois do quarto dígito
+    numeroCartao = numeroCartao.replace(/(\d{4})(\d)/, '$1 4'); // Coloca um espaco depois do quarto dígito
+    numeroCartao = numeroCartao.replace(/(\d{4})(\d)/, '$1 4'); // Coloca um espaco depois do quarto dígito
+    return numeroCartao;
+}
+
+document.getElementById('cvv-cartao').addEventListener('input', function (e) {
+    var input = e.target;
+    var valorFormatado = mascaraCVV(input.value);
+    input.value = valorFormatado;
+});
+
+function mascaraCVV(numeroCVV) {
+    numeroCVV = numeroCVV.replace(/\D/g, ''); // Remove qualquer caracter que não seja dígito
+    return numeroCVV;
+}
+
+document.getElementById('validade-cartao').addEventListener('input', function (e) {
+    var input = e.target;
+    var valorFormatado = mascaraValidade(input.value);
+    input.value = valorFormatado;
+});
+
+function mascaraValidade(validade) {
+    validade = validade.replace(/\D/g, ''); // Remove qualquer caracter que não seja dígito
+    validade = validade.replace(/(\d{2})(\d)/, '$1/2'); // Coloca uma barra depois do  dígito
+    return validade;
+
+}

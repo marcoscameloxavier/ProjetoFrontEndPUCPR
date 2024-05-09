@@ -154,3 +154,10 @@ h3{
     font-size: 16px;
     margin-top: 10px;
 }
+
+#cvv-cartao::-webkit-inner-spin-button,
+#cvv-cartao::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Oculta as setas no Chrome */
+    margin: 0; /* Remove o espaço entre o input e as setas no Chrome */
+    appearance: none; /* Oculta as setas no Firefox */
+}
