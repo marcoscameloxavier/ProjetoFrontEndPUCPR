@@ -79,21 +79,23 @@
                     <p>Seu boleto será gerado após a confirmação da compra.</p>
                 </div>
                 <label class="opcao-pagamento">
-                    <input type="radio" name="pagamento" value="pix">
+                    <input type="radio" name="pagamento" value="pix" onclick="mostrarPagamentoPix()">
                     <span class="radio-container">
                         <div class="pagamento-icons">
                             <img src="../img/pix.png" alt="PIX">
                         </div>
                     </span>
                 </label>
-                <div class="pagamento-pix" id="div-pagamento-pix" onclick="mostrarPagamentoPix()">
-                    <img src="../img/qrcode.svg" class="qr-code">
-                    <button class="botao" onclick="copiarPix()">Copiar código Pix</button>
-                    <ol start="1">
-                        <li> Abra o app do seu banco, vá até o ambiente Pix e escolha pagar com QR Code ou Pix Copia e Cola.</li>
-                        <li> Escaneie ou cole o código Pix. Confira as informações e finalize o pagamento.</li>
-                        <li> Após a aprovação do pagamento, seu pedido será concluído automaticamente.</li>
-                    </ol>
+                <div class="ultima-opcao-pagamento" id="div-pagamento-pix">
+                    <div class="pagamento-pix">
+                        <img src="../img/qrcode.svg" class="qr-code">
+                        <button class="botao" onclick="copiarPix()">Copiar código Pix</button>
+                        <ol start="1">
+                            <li> Abra o app do seu banco, vá até o ambiente Pix e escolha pagar com QR Code ou Pix Copia e Cola.</li>
+                            <li> Escaneie ou cole o código Pix. Confira as informações e finalize o pagamento.</li>
+                            <li> Após a aprovação do pagamento, seu pedido será concluído automaticamente.</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
             <button type="submit" class="botao-finalizar">Finalizar compra</button>

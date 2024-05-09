@@ -130,10 +130,9 @@ input[type="radio"] {
     font-weight: bold;
 }
 
-.pagamento-cartao, .pagamento-boleto, .pagamento-pix{
+.pagamento-cartao, .pagamento-boleto, .ultima-opcao-pagamento{
     display: none;
 }
-
 
 h3{
     margin-left: 25px;
