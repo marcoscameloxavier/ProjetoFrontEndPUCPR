@@ -37,7 +37,7 @@
         <form action="#">
             <div class="opcoes-pagamento">
                 <label class="opcao-pagamento">
-                    <input type="radio" name="pagamento" value="cartao" onchange="mostrarPagamentoCartao()">
+                    <input type="radio" name="pagamento" value="cartao" onclick="mostrarPagamentoCartao()">
                     <span class="radio-container">
                         <div class="pagamento-icons">
                             <img src="../img/visa.png" alt="Visa">
@@ -86,7 +86,7 @@
                         </div>
                     </span>
                 </label>
-                <div class="pagamento-pix" id="div-pagamento-pix" onchange="mostrarPagamentoPix()">
+                <div class="pagamento-pix" id="div-pagamento-pix" onclick="mostrarPagamentoPix()">
                     <img src="../img/qrcode.svg" class="qr-code">
                     <button class="botao" onclick="copiarPix()">Copiar código Pix</button>
                     <ol start="1">
