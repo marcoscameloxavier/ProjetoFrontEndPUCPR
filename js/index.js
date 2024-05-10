@@ -13,6 +13,10 @@ async function pesquisarLivros() {
 async function carregarLivros(query) {
     const apiKey = 'AIzaSyAzPMMGofkOJx-0Fb8uoutZV7apJKYCHqg';
 
+    document.getElementById("livros").innerHTML = "";
+    document.getElementById("loading").style.display = "block"; // Mostrar a mensagem de carregamento
+
+
     if (query === "") {
         query = "html";
     }
@@ -86,6 +90,7 @@ async function carregarLivros(query) {
             document.getElementById("livros").innerHTML += livro;
         }
     }
+    document.getElementById("loading").style.display = "none"; // Esconder a mensagem de carregamento
 }
 
 // Adiciona um ouvinte de eventos ao campo de entrada
