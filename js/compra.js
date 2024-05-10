@@ -9,7 +9,7 @@ function carregarCarrinhoCompra(){
         for (var i = 0; i < carrinho.length; i++) {
             var itemCarrinho = `
                 <div class="item-carrinho">
-                  <!-- <img class="capa-livro" src="${carrinho[i].src}">-->
+                   <img class="capa-livro" src="${carrinho[i].src}">
                    <div class="info-livro-resumida">
                        <span class="titulo-livro">${carrinho[i].titulo}</span>
                        <span class="preco-livro">Preço unitário: R$ ${carrinho[i].preco}</span>
@@ -84,4 +84,10 @@ function mascaraValidade(validade) {
     validade = validade.replace(/(\d{2})(\d)/, '$1/2'); // Coloca uma barra depois do  dígito
     return validade;
 
+}
+
+function finalizarPagamento(){
+    document.getElementById("div-compra-finalizada").style.display = "block";
+    document.getElementsByClassName("container-resumo")[0].style.display = "none";
+    document.getElementsByClassName("container-pagamento")[0].style.display = "none";
 }

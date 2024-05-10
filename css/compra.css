@@ -12,10 +12,11 @@
 }
 
 
-.container-pagamento {
+.container-pagamento, .container-resumo {
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     max-width: 800px;
     padding: 20px;
     background: #fff;
@@ -132,6 +133,13 @@ input[type="radio"] {
 
 .pagamento-cartao, .pagamento-boleto, .ultima-opcao-pagamento{
     display: none;
+    max-width: 800px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #eeeeee;
+    position: relative;
 }
 
 h3{
@@ -148,7 +156,7 @@ h3{
     align-items: center;
 }
 
-.pagamento-pix ol li{
+.pagamento-pix ol li, .pagamento-boleto ol li {
     color: #172930;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -160,4 +168,53 @@ h3{
     -webkit-appearance: none; /* Oculta as setas no Chrome */
     margin: 0; /* Remove o espaço entre o input e as setas no Chrome */
     appearance: none; /* Oculta as setas no Firefox */
+}
+
+.itens-carrinho{
+    height: 500px;
+    margin-bottom: 0px;
+    -ms-overflow-style: scrollbar; /* Internet Explorer 10+ */
+    scrollbar-width: auto;/* Firefox */
+}
+
+.compra-finalizada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#div-compra-finalizada{
+    display: none;
+}
+
+.info-box {
+    border-top: 1px solid #CCCCCC;
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.info-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #666;
+}
+
+.info-list li {
+    padding: 5px 0;
+    color: #888888;
+}
+
+.capa-livro{
+    width: 40px;
 }

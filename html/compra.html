@@ -10,7 +10,7 @@
     <script defer src="../js/index.js"></script>
     <script defer src="../js/compra.js"></script>
     <script defer src="../js/util.js"></script>
-    <title>Book Store</title>
+    <title>Páginas Infinitas</title>
 </head>
 <body>
     <div class="barra-principal">
@@ -76,7 +76,19 @@
                     </span>
                 </label>
                 <div class="pagamento-boleto" id="div-pagamento-boleto">
-                    <p>Seu boleto será gerado após a confirmação da compra.</p>
+                    <ol start="1">
+                        <li> <i class="fa-solid fa-print"></i> Depois de fechar o pedido, imprima ou copie o número do boleto.</li>
+                        <li> <i class="fa-solid fa-money-bill"></i> Pague no seu banco ou pela internet.</li>
+                        <li> <i class="fa-regular fa-calendar"></i> O prazo de validade do boleto é de 1 dia útil.</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <p class="info-title"><i class="fa-solid fa-circle-info"></i> Importante</p>
+                        <ul class="info-list">
+                            <li>Se o boleto não for pago até a data de vencimento, o pedido será cancelado automaticamente</li>
+                            <li>O prazo de entrega dos pedidos pagos com boleto bancário começa a contar três dias depois do pagamento do boleto, tempo necessário para que a instituição bancária confirme o pagamento.</li>
+                        </ul>
+                    </div>
                 </div>
                 <label class="opcao-pagamento">
                     <input type="radio" name="pagamento" value="pix" onclick="mostrarPagamentoPix()">
@@ -91,30 +103,39 @@
                         <img src="../img/qrcode.svg" class="qr-code">
                         <button class="botao" onclick="copiarPix()">Copiar código Pix</button>
                         <ol start="1">
-                            <li> Abra o app do seu banco, vá até o ambiente Pix e escolha pagar com QR Code ou Pix Copia e Cola.</li>
-                            <li> Escaneie ou cole o código Pix. Confira as informações e finalize o pagamento.</li>
-                            <li> Após a aprovação do pagamento, seu pedido será concluído automaticamente.</li>
+                            <li> <i class="fa-brands fa-pix"></i> Abra o app do seu banco, vá até o ambiente Pix e escolha pagar com QR Code ou Pix Copia e Cola.</li>
+                            <li> <i class="fa-solid fa-money-bill"></i> Escaneie ou cole o código Pix. Confira as informações e finalize o pagamento.</li>
+                            <li> <i class="fa-solid fa-book"></i> Após a aprovação do pagamento, seu pedido será concluído automaticamente.</li>
                         </ol>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="botao-finalizar">Finalizar compra</button>
+            <button type="submit" class="botao-finalizar"  onclick="finalizarPagamento()">Finalizar compra</button>
         </form>
     </div>
-    <h3>Resumo do Pedido</h3>
-    <div class="total-carrinho">
-        <div>
-            <span id="label-itens-total-carrinho">Subtotal (2 itens): </span><span id="itens-total-carrinho">R$ 12,00</span>
+    <div class="container-resumo">
+        <h1>Resumo do Pedido</h1>
+        <div class="total-carrinho">
+            <div>
+                <span id="label-itens-total-carrinho">Subtotal (2 itens): </span><span id="itens-total-carrinho">R$ 12,00</span>
+            </div>
+            <div>
+                <span id="label-frete-carrinho">Entrega: </span><span id="frete-carrinho">frete grátis</span>
+            </div>
+            <div>
+                <span id="label-valor-total-carrinho">Total: </span><span id="valor-total-carrinho">R$ 0,00</span>
+            </div>
         </div>
-        <div>
-            <span id="label-frete-carrinho">Entrega: </span><span id="frete-carrinho">grátis</span>
-        </div>
-        <div>
-            <span id="label-valor-total-carrinho">Total: </span><span id="valor-total-carrinho">R$ 0,00</span>
+        <div class="itens-carrinho" id="itens-carrinho">
+            <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
         </div>
     </div>
-    <div class="itens-carrinho" id="itens-carrinho">
-        <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
+    <div id="div-compra-finalizada" >
+        <div class="compra-finalizada">
+            <h1>Compra finalizada com sucesso!</h1>
+            <ol>Seu pedido foi concluído com sucesso. Em breve você receberá um e-mail com os detalhes da sua compra.</ol>
+            <button class="botao" onclick="window.location.href='index.html'">Voltar para a página inicial</button>
+        </div>
     </div>
 </body>
 </html>
