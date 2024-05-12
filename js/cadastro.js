@@ -117,3 +117,40 @@ function removerMascaraCEP(cep) {
     cep = cep.replace(/\D/g, '');
     return cep;
 }
+
+/* senha */
+
+document.getElementById('toggleSenha').addEventListener('click', function() {
+    const senha = document.getElementById('senha');
+    if (senha.type === 'password') {
+        senha.type = 'text';
+        this.classList.replace('fa-eye-slash', 'fa-eye');
+    } else {
+        senha.type = 'password';
+        this.classList.replace('fa-eye', 'fa-eye-slash');
+    }
+});
+
+document.getElementById('toggleConfirmarSenha').addEventListener('click', function() {
+    const confSenha = document.getElementById('confirmar_senha');
+    if (confSenha.type === 'password') {
+        confSenha.type = 'text';
+        this.classList.replace('fa-eye-slash', 'fa-eye');
+    } else {
+        confSenha.type = 'password';
+        this.classList.replace('fa-eye', 'fa-eye-slash');
+    }
+});
+
+document.getElementById('confirmar_senha').addEventListener('input', function() {
+    const senha = document.getElementById('senha').value;
+    const confSenha = this.value;
+    if (senha !== confSenha) {
+        this.setCustomValidity('As senhas não coincidem.');
+    } else {
+        this.setCustomValidity('');
+    }
+});
+
+
+
