@@ -87,7 +87,87 @@ function mascaraValidade(validade) {
 }
 
 function finalizarPagamento(){
-    document.getElementById("div-compra-finalizada").style.display = "block";
-    document.getElementsByClassName("container-resumo")[0].style.display = "none";
-    document.getElementsByClassName("container-pagamento")[0].style.display = "none";
+    var passouNasValidacoes = true;
+    console.log("Validacoes");
+    if(document.getElementById("div-pagamento-cartao").style.display === "block"){
+        passouNasValidacoes = validarPagamentoCartao();
+        console.log(passouNasValidacoes);
+    }
+    if (passouNasValidacoes) {
+        document.getElementById("div-compra-finalizada").style.display = "block";
+        document.getElementsByClassName("container-resumo")[0].style.display = "none";
+        document.getElementsByClassName("container-pagamento")[0].style.display = "none";
+    }
+}
+
+function validarPagamentoCartao(){
+    var validouCVV = validarCVV();
+    var validouNum = validarNumeroCartao();
+    var validouVal = validarValidade();
+    var validouNom = validarNomeTitular();
+    return validouCVV && validouNum && validouVal && validouNom;
+}
+
+function validarNumeroCartao() {
+    var passouNasValidacoes = true;
+    var inputNumCartao = document.getElementById("numero-cartao")
+    if (inputNumCartao.value === '') {
+        inputNumCartao.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else if (inputNumCartao.value.length < 19){
+        inputNumCartao.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputNumCartao.style.borderColor = '#85a99d';
+    }
+    return passouNasValidacoes;
+}
+
+function validarCVV() {
+    var passouNasValidacoes = true;
+    var inputCVV = document.getElementById("cvv-cartao")
+    if (inputCVV.value === '') {
+        inputCVV.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else if (inputCVV.value.length < 3){
+        inputCVV.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputCVV.style.borderColor = '#85a99d';
+    }
+    return passouNasValidacoes;
+}
+
+function validarValidade() {
+    var passouNasValidacoes = true;
+    var inputValidade = document.getElementById("validade-cartao")
+    if (inputValidade.value === '') {
+        inputValidade.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else if (inputValidade.value.length < 5){
+        inputValidade.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputValidade.style.borderColor = '#85a99d';
+    }
+    return passouNasValidacoes;
+}
+
+function validarNomeTitular() {
+    var passouNasValidacoes = true;
+    var inputNomeTitular = document.getElementById("nome-cartao")
+    if (inputNomeTitular.value === '') {
+        inputNomeTitular.style.borderColor = 'red';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputNomeTitular.style.borderColor = '#85a99d';
+    }
+    return passouNasValidacoes;
 }
