@@ -111,16 +111,22 @@ function validarPagamentoCartao(){
 function validarNumeroCartao() {
     var passouNasValidacoes = true;
     var inputNumCartao = document.getElementById("numero-cartao")
+    var campoErro = document.getElementById("erro_num-cartao");
     if (inputNumCartao.value === '') {
         inputNumCartao.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        campoErro.innerHTML = 'Campo obrigatório';
         passouNasValidacoes = false;
     }
     else if (inputNumCartao.value.length < 19){
         inputNumCartao.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        campoErro.innerHTML = 'Número do cartão inválido';
         passouNasValidacoes = false;
     }
     else{
         inputNumCartao.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
     }
     return passouNasValidacoes;
 }
@@ -128,16 +134,22 @@ function validarNumeroCartao() {
 function validarCVV() {
     var passouNasValidacoes = true;
     var inputCVV = document.getElementById("cvv-cartao")
+    var campoErro = document.getElementById("erro_cvv-cartao");
     if (inputCVV.value === '') {
         inputCVV.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        campoErro.innerHTML = 'Campo obrigatório';
         passouNasValidacoes = false;
     }
     else if (inputCVV.value.length < 3){
         inputCVV.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        campoErro.innerHTML = 'Número do CVV inválido';
         passouNasValidacoes = false;
     }
     else{
         inputCVV.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
     }
     return passouNasValidacoes;
 }
@@ -145,16 +157,36 @@ function validarCVV() {
 function validarValidade() {
     var passouNasValidacoes = true;
     var inputValidade = document.getElementById("validade-cartao")
+    var campoErro = document.getElementById("erro_validade-cartao");
     if (inputValidade.value === '') {
         inputValidade.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        campoErro.innerHTML = 'Campo obrigatório';
         passouNasValidacoes = false;
     }
     else if (inputValidade.value.length < 5){
         inputValidade.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        campoErro.innerHTML = 'Data Inválida';
         passouNasValidacoes = false;
+    }
+    else if (inputValidade.value.length === 5){
+        var mes = parseInt(inputValidade.value.substring(0,2));
+        var ano = parseInt(inputValidade.value.substring(3,5));
+        if (mes < 1 || mes > 12 || ano < 24 || ano > 50){
+            inputValidade.style.borderColor = 'red';
+            campoErro.style.display = 'block';
+            campoErro.innerHTML = 'Data Inválida';
+            passouNasValidacoes = false;
+        }
+        else{
+            inputValidade.style.borderColor = '#85a99d';
+            campoErro.style.display = 'none';
+        }
     }
     else{
         inputValidade.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
     }
     return passouNasValidacoes;
 }
@@ -162,12 +194,15 @@ function validarValidade() {
 function validarNomeTitular() {
     var passouNasValidacoes = true;
     var inputNomeTitular = document.getElementById("nome-cartao")
+    var campoErro = document.getElementById("erro_titular-cartao");
     if (inputNomeTitular.value === '') {
         inputNomeTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
         passouNasValidacoes = false;
     }
     else{
         inputNomeTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
     }
     return passouNasValidacoes;
 }
