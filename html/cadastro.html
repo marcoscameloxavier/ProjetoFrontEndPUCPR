@@ -87,12 +87,15 @@
     </div>
 
     <div class="form-floating-label">
-        <input type="password" id="confirmar_senha" name="conf_senha" required placeholder=" " >
+        <input type="password" id="confirmar_senha" name="conf_senha" required placeholder=" " onblur="">
         <label for="senha">Confirmar Senha</label>
         <i class="fas fa-eye-slash" id="toggleConfirmarSenha" style="cursor: pointer;"></i>
     </div>
 
-    <button class="botao" type="submit" id="cadastrar_usuario">Cadastrar Usuario</button>
+    <div>
+        <button class="botao" type="submit" id="cadastrar_usuario">Cadastrar Usuario</button>
+        <button class="botao" type="reset" id="limpar_formulario">Limpar Formulário</button>
+    </div>
 
 </form>
 

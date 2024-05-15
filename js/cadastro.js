@@ -96,20 +96,7 @@ function consultarCEP() {
             displayErrorModal('Erro ao buscar o CEP. Por favor, tente novamente.');
         }
     }
-    /* esse código eu vou retirar no próximo commit.
-    const cep = removerMascaraCEP(document.getElementById('cep').value);
-    console.log(cep);
-    const url = `https://viacep.com.br/ws/${cep}/json/`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('logradouro').value = data.logradouro;
-            document.getElementById('complemento').value = data.complemento;
-            document.getElementById('cidade').value = data.localidade;
-            document.getElementById('bairro').value = data.bairro;
-            document.getElementById('uf').value = data.uf;
-        })
-        .catch(error => console.error('Erro ao buscar CEP:', error)); */
+
 }
 
 function removerMascaraCEP(cep) {
@@ -152,5 +139,28 @@ document.getElementById('confirmar_senha').addEventListener('input', function() 
     }
 });
 
+document.querySelector('.formulario-cadastro').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+        nome: document.getElementById('nome').value,
+        sobrenome: document.getElementById('sobrenome').value,
+        email: document.getElementById('email').value,
+        cep: document.getElementById('cep').value,
+        logradouro: document.getElementById('logradouro').value,
+        numero: document.getElementById('numero').value,
+        complemento: document.getElementById('complemento').value,
+        bairro: document.getElementById('bairro').value,
+        cidade: document.getElementById('cidade').value,
+        uf: document.getElementById('uf').value,
+        telefone_celular: document.getElementById('telefone_celular').value,
+        cpf: document.getElementById('cpf').value,
+        senha: document.getElementById('senha').value,
+        confirmar_senha: document.getElementById('confirmar_senha').value,
+    };
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+    alert('Dados salvos com sucesso!');
+});
 
 
