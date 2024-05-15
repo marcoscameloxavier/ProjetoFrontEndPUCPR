@@ -159,6 +159,7 @@ document.querySelector('.formulario-cadastro').addEventListener('submit', functi
         confirmar_senha: document.getElementById('confirmar_senha').value,
     };
 
+
     localStorage.setItem('formData', JSON.stringify(formData));
     alert('Dados salvos com sucesso!');
 });
