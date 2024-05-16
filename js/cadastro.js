@@ -160,8 +160,23 @@ document.querySelector('.formulario-cadastro').addEventListener('submit', functi
     };
 
 
-    localStorage.setItem('formData', JSON.stringify(formData));
+    localStorage.setItem('cadastro', JSON.stringify(formData));
     alert('Dados salvos com sucesso!');
 });
 
 
+function validarNome() {
+    var passouNasValidacoes = true;
+    var inputNomeTitular = document.getElementById("nome")
+    var campoErro = document.getElementById("erro_nome");
+    if (inputNomeTitular.value === '') {
+        inputNomeTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputNomeTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}

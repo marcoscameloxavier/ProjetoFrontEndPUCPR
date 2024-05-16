@@ -161,4 +161,9 @@ h1 {
 .form-floating-label input:focus {
     border-color: var(--cor-hover);
 }
+.id-usuario-logado {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
 /**/

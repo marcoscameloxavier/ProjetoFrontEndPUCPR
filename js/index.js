@@ -1,9 +1,26 @@
 window.onload = async function() {
     carregarLivros('html');
+    carregarUsuarioLogado();
     if(localStorage.getItem('exibirCarrinho') === 'true') {
         mostrarCarrinho();
         localStorage.removeItem('exibirCarrinho');
     }
+}
+
+
+
+function carregarUsuarioLogado () {
+    if(localStorage.getItem('usuarioLogado') === 'true') {
+        var cadastro = JSON.parse(localStorage.getItem('cadastro'));
+        document.getElementById("id-usuario-logado").innerHTML = "Olá,  "+cadastro.nome;
+        document.getElementById("texto-login").innerHTML = "Sair";
+    }
+    else
+    {
+        document.getElementById("texto-login").innerHTML = "Login";
+        document.getElementById("id-usuario-logado").innerHTML = "Olá, faça seu login";
+    }
+
 }
 
 async function pesquisarLivros() {
@@ -269,22 +286,46 @@ function fecharModalLimparCarrinho() {
 
 //Bloco para o Modal de Login
 function mostrarModalLogin() {
+    if(localStorage.getItem('usuarioLogado') === 'true') {
+        logout();
+    }
+    else{
     document.getElementById('modalLogin').style.display = 'block';
-    document.getElementById('login-lateral').style.opacity = '1'; // Reduz a opacidade do carrinho
+    }
 }
 
 //Funcao para fechar o modal de login
 function fecharModalLogin() {
     document.getElementById('modalLogin').style.display = 'none';
-    document.getElementById('login-lateral').style.opacity = '1'; // Restaura a opacidade do carrinho
+
+
 }
 
 // Função para efetuar o login
 function login() {
     // Aqui você pode adicionar o código para validar o login e redirecionar o usuário
     // Por enquanto, apenas exibiremos uma mensagem no console
+     var email = document.getElementById("email").value;
+     console.log(email);
+     var senha = document.getElementById("senha").value;
+     console.log(senha);
+     var cadastro = JSON.parse(localStorage.getItem('cadastro'));
+     if (cadastro.email===email && cadastro.senha===senha) {
+         localStorage.setItem("usuarioLogado","true");
+         carregarUsuarioLogado();
+         fecharModalLogin();
 
+     }
+     else {
+         alert("usuario não cadastrado");
+     }
 }
+
+function logout() {
+    localStorage.setItem("usuarioLogado","false");
+    carregarUsuarioLogado();
+}
+
 
 // Função para efetuar o cadastro
 function cadastro() {

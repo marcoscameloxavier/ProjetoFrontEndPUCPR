@@ -31,7 +31,14 @@ label {
 }
 
 
-
+.erro_campo-cadastro{
+    color: red;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    display: none;
+}
 
 input {
     width: 100%;
