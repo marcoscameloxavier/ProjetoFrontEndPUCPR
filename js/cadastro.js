@@ -52,8 +52,26 @@ function displayErrorModal(message) {
 }
 
 document.getElementById('cep').addEventListener('blur', function() {
-    consultarCEP();
+    var cepZerado = validarCepIncompleto();
+    if (cepZerado === true) {
+        consultarCEP();
+    }
 });
+
+document.getElementById('cep').addEventListener('focus', function() {
+    var cepZerado = validarCepIncompleto();
+    if (cepZerado === false) {
+    limparEndereco();
+    }
+});
+
+function limparEndereco() {
+        document.getElementById('logradouro').value = '';
+        document.getElementById('numero').value = '';
+        document.getElementById('complemento').value = '';
+        document.getElementById('bairro').value = '';
+        document.getElementById('uf').value = '';
+}
 
 function limparErroCep() {
     document.getElementById('errocep').style.display = 'none';
@@ -167,7 +185,7 @@ document.querySelector('.formulario-cadastro').addEventListener('submit', functi
 
 function validarNome() {
     var passouNasValidacoes = true;
-    var inputNomeTitular = document.getElementById("nome")
+    var inputNomeTitular = document.getElementById("nome");
     var campoErro = document.getElementById("erro_nome");
     if (inputNomeTitular.value === '') {
         inputNomeTitular.style.borderColor = 'red';
@@ -180,3 +198,119 @@ function validarNome() {
     }
     return passouNasValidacoes;
 }
+
+function validarSobrenome() {
+    var passouNasValidacoes = true;
+    var inputSobrenomeTitular = document.getElementById("sobrenome");
+    var campoErro = document.getElementById("erro_sobrenome");
+    if (inputSobrenomeTitular.value === '') {
+        inputSobrenomeTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputSobrenomeTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+function validarEmail() {
+    var passouNasValidacoes = true;
+    var inputEmailTitular = document.getElementById("email");
+    var campoErro = document.getElementById("erro_email");
+    if (inputEmailTitular.value === '') {
+        inputEmailTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputEmailTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+function validarCepIncompleto() {
+    var passouNasValidacoes = true;
+    var inputCepTitular = document.getElementById("cep");
+    var campoErro = document.getElementById("erro_cep");
+    // tentar inserir o teste do cep incompleto
+    if (inputCepTitular.value === '') {
+        inputCepTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputCepTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+function validarCepIncompleto() {
+    var passouNasValidacoes = true;
+    var inputCepTitular = document.getElementById("cep");
+    var campoErro = document.getElementById("erro_cep");
+    if (inputCepTitular.value === '' || inputCepTitular.value.length < 9) {
+        inputCepTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputCepTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+//parei aqui
+function validarLogradouro() {
+    var passouNasValidacoes = true;
+    var inputLogradouro = document.getElementById("logradouro");
+    var campoErro = document.getElementById("erro_logradouro");
+    if (inputLogradouro.value.length === 0 ) {
+        inputLogradouro.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputLogradouro.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+function validarNumLogradouro() {
+
+}
+
+function validarBairro() {
+
+}
+
+function validarCidade() {
+
+}
+
+function validarUF() {
+
+}
+
+function validarTelefoneCelular() {
+
+}
+
+function validarCPF() {
+
+}
+
+function validarSenhaPreenchida() {
+
+}
+
+function validarConfirmacaoSenhaPreenchida() {
+
+}
+
+
