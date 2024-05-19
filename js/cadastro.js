@@ -99,13 +99,31 @@ function consultarCEP() {
                         document.getElementById('errocep').style.display = 'block';
                     }
                     else{
+                    //preenche as caixas de logradouro, bairro, cidade e UF voltam a cor original, bloqueia o alerta campo obrigatorio
                     document.getElementById('cep').style.borderColor = '#85a99d';
-                    document.getElementById('errocep').style.display = 'none';
+                    document.getElementById('erro_cep').style.display = 'none';
+
                     document.getElementById('logradouro').value = data.logradouro;
+                    document.getElementById('logradouro').style.borderColor = '#85a99d';
+                    document.getElementById('erro_logradouro').style.display = 'none';
+
                     document.getElementById('complemento').value = data.complemento;
+
                     document.getElementById('cidade').value = data.localidade;
+                    document.getElementById('cidade').style.borderColor = '#85a99d';
+                    document.getElementById('erro_cidade').style.display = 'none';
+
+
                     document.getElementById('bairro').value = data.bairro;
+                    document.getElementById('bairro').style.borderColor = '#85a99d';
+                    document.getElementById('erro_bairro').style.display = 'none';
+
+
                     document.getElementById('uf').value = data.uf;
+                    document.getElementById('uf').style.borderColor = '#85a99d';
+                    document.getElementById('erro_uf').style.display = 'none';
+
+
                     }
                 })
                 .catch(error => console.error('Erro ao buscar CEP:', error));
@@ -282,35 +300,131 @@ function validarLogradouro() {
 }
 
 function validarNumLogradouro() {
-
+    var passouNasValidacoes = true;
+    var inputNumero = document.getElementById("numero");
+    var campoErro = document.getElementById("erro_numero");
+    if (inputNumero.value.length === 0 ) {
+        inputNumero.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputNumero.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarBairro() {
-
+    var passouNasValidacoes = true;
+    var inputBairro = document.getElementById("bairro");
+    var campoErro = document.getElementById("erro_bairro");
+    if (inputBairro.value.length === 0 ) {
+        inputBairro.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputBairro.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarCidade() {
-
+    var passouNasValidacoes = true;
+    var inputCidade = document.getElementById("cidade");
+    var campoErro = document.getElementById("erro_cidade");
+    if (inputCidade.value.length === 0 ) {
+        inputCidade.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputCidade.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarUF() {
-
+    var passouNasValidacoes = true;
+    var inputUF = document.getElementById("uf");
+    var campoErro = document.getElementById("erro_uf");
+    if (inputUF.value.length === 0 ) {
+        inputUF.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputUF.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarTelefoneCelular() {
-
+    var passouNasValidacoes = true;
+    var inputTelefoneCelular = document.getElementById("telefone_celular");
+    var campoErro = document.getElementById("erro_telefone_celular");
+    if (inputTelefoneCelular.value.length === 0 ) {
+        inputTelefoneCelular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputTelefoneCelular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarCPF() {
-
+    var passouNasValidacoes = true;
+    var inputCPF = document.getElementById("cpf");
+    var campoErro = document.getElementById("erro_cpf");
+    if (inputCPF.value.length === 0 ) {
+        inputCPF.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputCPF.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarSenhaPreenchida() {
-
+    var passouNasValidacoes = true;
+    var inputSenha = document.getElementById("senha");
+    var campoErro = document.getElementById("erro_senha");
+    if (inputSenha.value.length === 0 ) {
+        inputSenha.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputSenha.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 function validarConfirmacaoSenhaPreenchida() {
-
+    var passouNasValidacoes = true;
+    var inputSenhaConfirmacao = document.getElementById("confirmar_senha");
+    var campoErro = document.getElementById("erro_conf_senha");
+    if (inputSenhaConfirmacao.value.length === 0 ) {
+        inputSenhaConfirmacao.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputSenhaConfirmacao.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
 }
 
 
