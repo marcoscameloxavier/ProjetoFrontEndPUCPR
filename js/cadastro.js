@@ -56,13 +56,14 @@ document.getElementById('cep').addEventListener('blur', function() {
     if (cepZerado === true) {
         consultarCEP();
     }
+    else {
+        limparEndereco();
+
+    }
 });
 
-document.getElementById('cep').addEventListener('focus', function() {
-    var cepZerado = validarCepIncompleto();
-    if (cepZerado === false) {
-    limparEndereco();
-    }
+document.getElementById('cep').addEventListener('focus', function () {
+   limparErroCep();
 });
 
 function limparEndereco() {
@@ -70,6 +71,7 @@ function limparEndereco() {
         document.getElementById('numero').value = '';
         document.getElementById('complemento').value = '';
         document.getElementById('bairro').value = '';
+        document.getElementById('cidade').value = '';
         document.getElementById('uf').value = '';
 }
 
@@ -77,6 +79,20 @@ function limparErroCep() {
     document.getElementById('errocep').style.display = 'none';
     document.getElementById('cep').style.borderColor = '#85a99d';
 
+}
+
+
+function removeMensagemErroEndereco() {
+    document.getElementById('cep').style.borderColor = '#85a99d';
+    document.getElementById('erro_cep').style.display = 'none';
+    document.getElementById('logradouro').style.borderColor = '#85a99d';
+    document.getElementById('erro_logradouro').style.display = 'none';
+    document.getElementById('cidade').style.borderColor = '#85a99d';
+    document.getElementById('erro_cidade').style.display = 'none';
+    document.getElementById('bairro').style.borderColor = '#85a99d';
+    document.getElementById('erro_bairro').style.display = 'none';
+    document.getElementById('uf').style.borderColor = '#85a99d';
+    document.getElementById('erro_UF').style.display = 'none';
 }
 
 function consultarCEP() {
@@ -88,6 +104,7 @@ function consultarCEP() {
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Erro ao buscar CEP');
+                        limparErroCep();
                     }
                     return response.json();
                 })
@@ -97,33 +114,17 @@ function consultarCEP() {
                         document.getElementById('cep').value = '';
                         document.getElementById('cep').style.borderColor = 'red';
                         document.getElementById('errocep').style.display = 'block';
+                        //limpar os campos associados ao CEP, pode ter os valores anteriores
+                        limparEndereco();
                     }
                     else{
                     //preenche as caixas de logradouro, bairro, cidade e UF voltam a cor original, bloqueia o alerta campo obrigatorio
-                    document.getElementById('cep').style.borderColor = '#85a99d';
-                    document.getElementById('erro_cep').style.display = 'none';
-
                     document.getElementById('logradouro').value = data.logradouro;
-                    document.getElementById('logradouro').style.borderColor = '#85a99d';
-                    document.getElementById('erro_logradouro').style.display = 'none';
-
                     document.getElementById('complemento').value = data.complemento;
-
                     document.getElementById('cidade').value = data.localidade;
-                    document.getElementById('cidade').style.borderColor = '#85a99d';
-                    document.getElementById('erro_cidade').style.display = 'none';
-
-
                     document.getElementById('bairro').value = data.bairro;
-                    document.getElementById('bairro').style.borderColor = '#85a99d';
-                    document.getElementById('erro_bairro').style.display = 'none';
-
-
                     document.getElementById('uf').value = data.uf;
-                    document.getElementById('uf').style.borderColor = '#85a99d';
-                    document.getElementById('erro_uf').style.display = 'none';
-
-
+                    removeMensagemErroEndereco();
                     }
                 })
                 .catch(error => console.error('Erro ao buscar CEP:', error));
@@ -132,6 +133,7 @@ function consultarCEP() {
             displayErrorModal('Erro ao buscar o CEP. Por favor, tente novamente.');
         }
     }
+
 
 }
 
@@ -177,7 +179,7 @@ document.getElementById('confirmar_senha').addEventListener('input', function() 
 
 document.querySelector('.formulario-cadastro').addEventListener('submit', function(e) {
     e.preventDefault();
-
+    if (validarCamposSubmissao() === true) {
     const formData = {
         nome: document.getElementById('nome').value,
         sobrenome: document.getElementById('sobrenome').value,
@@ -194,11 +196,32 @@ document.querySelector('.formulario-cadastro').addEventListener('submit', functi
         senha: document.getElementById('senha').value,
         confirmar_senha: document.getElementById('confirmar_senha').value,
     };
-
-
     localStorage.setItem('cadastro', JSON.stringify(formData));
     alert('Dados salvos com sucesso!');
+    }
+    else {
+        alert('Preencha corretamente os dados de Cadastro');
+    };
 });
+
+
+function validarCamposSubmissao(){
+    var validouNome = validarNome();
+    var validouSobrenome = validarSobrenome();
+    var validouEmail = validarEmail();
+    var validouCEP = validarCepIncompleto();
+    var validouNumero = validarNumLogradouro();
+    var validouBairro = validarBairro();
+    var validouCidade = validarCidade();
+    var validouUF = validarUF();
+    var validouCelular = validarTelefoneCelular();
+    var validouCPF = validarCPF();
+    var validouSenha = validarSenhaPreenchida();
+    var validouConfSenha = validarConfirmacaoSenhaPreenchida();
+    return (validouNome && validouSobrenome && validouEmail && validouCEP && validouNumero
+        && validouBairro && validouCidade && validouUF && validouCelular && validouCPF
+        && validouSenha && validouConfSenha);
+}
 
 
 function validarNome() {
@@ -350,7 +373,7 @@ function validarCidade() {
 function validarUF() {
     var passouNasValidacoes = true;
     var inputUF = document.getElementById("uf");
-    var campoErro = document.getElementById("erro_uf");
+    var campoErro = document.getElementById("erro_UF");
     if (inputUF.value.length === 0 ) {
         inputUF.style.borderColor = 'red';
         campoErro.style.display = 'block';

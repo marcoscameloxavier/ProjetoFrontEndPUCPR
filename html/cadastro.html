@@ -36,20 +36,17 @@
         <label for="email">Email</label>
     </div>
 
-
-
     <div class="erro_campo_cadastro" id="erro_cep">Campo obrigatório</div>
     <div class="form-floating-label">
-        <input type="text" id="cep" name="cep" maxlength="9" required placeholder=" " onfocus="limparErroCep()" >
+        <input type="text" id="cep" name="cep" maxlength="9" required placeholder=" " >
         <label for="cep">CEP</label>
         <label for="cep" id="errocep">CEP INVALIDO</label>
     </div>
 
 
-
     <div class="erro_campo_cadastro" id="erro_logradouro">Campo obrigatório</div>
     <div class="form-floating-label">
-        <input type="text" id="logradouro" name="logradouro"  required  placeholder=" " onblur="validarLogradouro()">
+        <input type="text" id="logradouro" name="logradouro"  required  placeholder=" " onblur="validarLogradouro()" readonly>
         <label for="logradouro">Endereco</label>
     </div>
 
@@ -66,19 +63,19 @@
 
     <div class="erro_campo_cadastro" id="erro_bairro">Campo obrigatório</div>
     <div class="form-floating-label">
-        <input type="text" id="bairro" name="bairro"  required  placeholder=" " onblur="validarBairro()">
+        <input type="text" id="bairro" name="bairro"  required  placeholder=" " onblur="validarBairro()" readonly>
         <label for="bairro">Bairro</label>
     </div>
 
     <div class="erro_campo_cadastro" id="erro_cidade">Campo obrigatório</div>
     <div class="form-floating-label">
-        <input type="text" id="cidade" name="cidade"  required  placeholder=" " onblur="validarCidade()">
+        <input type="text" id="cidade" name="cidade"  required  placeholder=" " onblur="validarCidade()" readonly>
         <label for="cidade">Cidade</label>
     </div>
 
     <div class="erro_campo_cadastro" id="erro_UF">Campo obrigatório</div>
     <div class="form-floating-label">
-        <input type="text" id="uf" name="uf"  required  placeholder=" " onblur="validarUF()">
+        <input type="text" id="uf" name="uf"  required  placeholder=" " onblur="validarUF()" readonly>
         <label for="uf">UF</label>
     </div>
 
