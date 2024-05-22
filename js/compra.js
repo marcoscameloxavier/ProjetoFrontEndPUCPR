@@ -21,7 +21,7 @@ function carregarCarrinhoCompra(){
             document.getElementById("itens-carrinho").innerHTML += itemCarrinho;
         }
     }
-    ajustarPrecoTotaleProdutos()
+    ajustarPrecoTotaleProdutos();
 }
 
 function mostrarCarrinhoPaginaIncial(){
@@ -205,4 +205,17 @@ function validarNomeTitular() {
         campoErro.style.display = 'none';
     }
     return passouNasValidacoes;
+}
+
+function atualizarParcelamento(valorTotal) {
+    var container = document.getElementById('opcoes-parcelamento');
+    container.innerHTML = ''; // Limpa opções anteriores
+    for (let i = 1; i <= 5; i++) {
+        let valorParcela = valorTotal / i;
+        let label = `${i}x R$ ${valorParcela.toFixed(2)} sem juros - total R$ ${valorTotal.toFixed(2)}`;
+        let option = document.createElement('option');
+        option.value = i;
+        option.text = label;
+        container.appendChild(option);
+    }
 }

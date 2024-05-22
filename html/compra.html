@@ -69,6 +69,12 @@
                         <input type="text" id="cvv-cartao" name="cvv-cartao" maxlength="3"  required placeholder=" " onblur="validarCVV()">
                         <label for="cvv-cartao">CVV</label>
                     </div>
+                    <div class="form-floating-label">
+                        <select id="opcoes-parcelamento" name="opcoes-parcelamento">
+                            <!-- Opções de parcelamento são adicionadas dinamicamente -->
+                        </select>
+                        <label for="opcoes-parcelamento">Selecione o número de parcelas</label>
+                    </div>
                 </div>
                 <label class="opcao-pagamento">
                     <input type="radio" name="pagamento" value="boleto" onclick="mostrarPagamentoBoleto()">
