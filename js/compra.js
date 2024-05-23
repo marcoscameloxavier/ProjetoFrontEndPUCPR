@@ -87,18 +87,28 @@ function mascaraValidade(validade) {
 }
 
 function finalizarPagamento(){
-    var passouNasValidacoes = true;
-    console.log("Validacoes");
-    if(document.getElementById("div-pagamento-cartao").style.display === "block"){
-        passouNasValidacoes = validarPagamentoCartao();
-        console.log(passouNasValidacoes);
+    //se nenhuma forma de pagamento estiver selecionada, mostrar o modal de erro
+    console.log(document.getElementById("div-pagamento-boleto").style.display)
+    if (document.getElementById("div-pagamento-cartao").style.display != "block" && document.getElementById("div-pagamento-boleto").style.display != "block" && document.getElementById("div-pagamento-pix").style.display != "block"){
+        document.getElementById("modal-erro-pagamento").style.display = "block";
     }
-    if (passouNasValidacoes) {
-        localStorage.removeItem("carrinhoLivros");
-        document.getElementById("div-compra-finalizada").style.display = "block";
-        document.getElementsByClassName("container-resumo")[0].style.display = "none";
-        document.getElementsByClassName("container-pagamento")[0].style.display = "none";
+    else {
+        var passouNasValidacoes = true;
+        if (document.getElementById("div-pagamento-cartao").style.display === "block") {
+            passouNasValidacoes = validarPagamentoCartao();
+            console.log(passouNasValidacoes);
+        }
+        if (passouNasValidacoes) {
+            localStorage.removeItem("carrinhoLivros");
+            document.getElementById("div-compra-finalizada").style.display = "block";
+            document.getElementsByClassName("container-resumo")[0].style.display = "none";
+            document.getElementsByClassName("container-pagamento")[0].style.display = "none";
+        }
     }
+}
+
+function fecharModalPagamento(){
+    document.getElementById("modal-erro-pagamento").style.display = "none";
 }
 
 function validarPagamentoCartao(){
