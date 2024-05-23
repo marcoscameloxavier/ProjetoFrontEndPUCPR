@@ -177,8 +177,9 @@ document.getElementById('confirmar_senha').addEventListener('input', function() 
     }
 });
 
-document.querySelector('.formulario-cadastro').addEventListener('submit', function(e) {
-    e.preventDefault();
+//document.querySelector('.formulario-cadastro').addEventListener('click', function(e) {
+//    e.preventDefault();
+function cadastrarUsuario() {
     if (validarCamposSubmissao() === true) {
     const formData = {
         nome: document.getElementById('nome').value,
@@ -201,8 +202,8 @@ document.querySelector('.formulario-cadastro').addEventListener('submit', functi
     }
     else {
         alert('Preencha corretamente os dados de Cadastro');
-    };
-});
+    }
+}
 
 
 function validarCamposSubmissao(){
@@ -272,22 +273,6 @@ function validarEmail() {
     return passouNasValidacoes;
 }
 
-function validarCepIncompleto() {
-    var passouNasValidacoes = true;
-    var inputCepTitular = document.getElementById("cep");
-    var campoErro = document.getElementById("erro_cep");
-    // tentar inserir o teste do cep incompleto
-    if (inputCepTitular.value === '') {
-        inputCepTitular.style.borderColor = 'red';
-        campoErro.style.display = 'block';
-        passouNasValidacoes = false;
-    }
-    else{
-        inputCepTitular.style.borderColor = '#85a99d';
-        campoErro.style.display = 'none';
-    }
-    return passouNasValidacoes;
-}
 
 function validarCepIncompleto() {
     var passouNasValidacoes = true;
@@ -450,4 +435,34 @@ function validarConfirmacaoSenhaPreenchida() {
     return passouNasValidacoes;
 }
 
+function resetFormulario() {
+    document.getElementById('nome').value = '';
+    document.getElementById('nome').style.borderColor = '#85a99d';
+    document.getElementById('erro_nome').style.display = 'none';
+    document.getElementById('sobrenome').value = '';
+    document.getElementById('sobrenome').style.borderColor = '#85a99d';
+    document.getElementById('erro_sobrenome').style.display = 'none';
+    document.getElementById('email').value = '';
+    document.getElementById('email').style.borderColor = '#85a99d';
+    document.getElementById('erro_email').style.display = 'none';
+    document.getElementById('numero').value = '';
+    document.getElementById('numero').style.borderColor = '#85a99d';
+    document.getElementById('erro_numero').style.display = 'none';
+    document.getElementById('telefone_celular').value = '';
+    document.getElementById('telefone_celular').style.borderColor = '#85a99d';
+    document.getElementById('erro_telefone_celular').style.display = 'none';
+    document.getElementById('cpf').value = '';
+    document.getElementById('cpf').style.borderColor = '#85a99d';
+    document.getElementById('erro_cpf').style.display = 'none';
+    document.getElementById('senha').value = '';
+    document.getElementById('senha').style.borderColor = '#85a99d';
+    document.getElementById('erro_senha').style.display = 'none';
+    document.getElementById('confirmar_senha').value = '';
+    document.getElementById('confirmar_senha').style.borderColor = '#85a99d';
+    document.getElementById('erro_conf_senha').style.display = 'none';
+    document.getElementById('cep').value = '';
+    limparErroCep();
+    removeMensagemErroEndereco();
+    limparEndereco();
+}
 

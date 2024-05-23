@@ -17,7 +17,7 @@
     <span class="titulo">Cadastro de clientes</span>
 </div>
 
-<form class="formulario-cadastro" >
+<div class="formulario-cadastro" >
     <div class="erro_campo_cadastro" id="erro_nome">Campo obrigatório</div>
     <div class="form-floating-label">
         <input type="text" id="nome" name="nome" size="150" maxlength="200" required placeholder=" " onblur="validarNome()">
@@ -40,7 +40,7 @@
     <div class="form-floating-label">
         <input type="text" id="cep" name="cep" maxlength="9" required placeholder=" " >
         <label for="cep">CEP</label>
-        <label for="cep" id="errocep">CEP INVALIDO</label>
+        <label for="cep" id="errocep">CEP inválido</label>
     </div>
 
 
@@ -106,11 +106,11 @@
     </div>
 
     <div>
-        <button class="botao" type="submit" id="cadastrar_usuario" onclick="">Cadastrar Usuario</button>
-        <button class="botao" type="reset" id="limpar_formulario">Limpar Formulário</button>
+        <button class="botao" type="button" id="cadastrar_usuario" onclick="cadastrarUsuario()">Cadastrar Usuario</button>
+        <button class="botao" type="button" id="limpar_formulario" onclick="resetFormulario()">Limpar Formulário</button>
     </div>
 
-</form>
+</div>
 
 
 <!-- Modal de Erro -->
