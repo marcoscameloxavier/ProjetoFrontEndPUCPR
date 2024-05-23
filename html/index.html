@@ -89,15 +89,18 @@
                    <button id="fechar-login" class="botao-fechar-login" onclick="fecharModalLogin()">&times;</button>
                    <!--Login-->
                    <div class="dados-login" id="dados-login">
+                       <div class="erro_campo_cadastro" id="erro_email">Campo obrigatório</div>
                        <div class="form-floating-label">
-                           <input type="text" id="email" name="email" size="200" required placeholder=" ">
+                           <input type="text" id="email" name="email" size="200" required placeholder=" " onblur="validarEmail()">
                            <label for="email">Email cadastrado</label>
                        </div>
+                       <div class="erro_campo_cadastro" id="erro_senha">Campo obrigatório</div>
                        <div class="form-floating-label">
-                           <input type="password" id="senha" name="senha" required placeholder=" ">
+                           <input type="password" id="senha" name="senha" required placeholder=" " onblur="validarSenhaPreenchida()">
                            <label for="senha">Senha</label>
                        </div>
                    </div>
+                   <div class="erro_campo_cadastro" id="erro_login">Usuário e/ou senha inválidos.</div>
                    <div>
                       <button class="botao" id="efetuar-login" onclick="login()">Efetuar Login na Conta</button>
                        <a href="cadastro.html">

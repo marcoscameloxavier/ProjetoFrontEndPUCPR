@@ -294,29 +294,28 @@ function mostrarModalLogin() {
 
 //Funcao para fechar o modal de login
 function fecharModalLogin() {
-    document.getElementById('modalLogin').style.display = 'none';
+        document.getElementById('modalLogin').style.display = 'none';
 
 
 }
 
 // Função para efetuar o login
 function login() {
-    // Aqui você pode adicionar o código para validar o login e redirecionar o usuário
-    // Por enquanto, apenas exibiremos uma mensagem no console
-     var email = document.getElementById("email").value;
-     console.log(email);
-     var senha = document.getElementById("senha").value;
-     console.log(senha);
-     var cadastro = JSON.parse(localStorage.getItem('cadastro'));
-     if (cadastro.email===email && cadastro.senha===senha) {
-         localStorage.setItem("usuarioLogado","true");
-         carregarUsuarioLogado();
-         fecharModalLogin();
-
-     }
-     else {
-         alert("usuario não cadastrado");
-     }
+    if (validarCamposSubmissao() === true) {
+        var email = document.getElementById("email").value;
+        console.log(email);
+        var senha = document.getElementById("senha").value;
+        console.log(senha);
+        var cadastro = JSON.parse(localStorage.getItem('cadastro'));
+        if (cadastro.email === email && cadastro.senha === senha) {
+            document.getElementById('erro_login' ).style.display = 'none';
+            localStorage.setItem("usuarioLogado", "true");
+            carregarUsuarioLogado();
+            fecharModalLogin();
+        } else {
+            document.getElementById('erro_login' ).style.display = 'block';
+        }
+    }
 }
 
 function logout() {
@@ -372,3 +371,40 @@ function fecharModalFazerLogin() {
     document.getElementById('modalFazerLogin').style.display = 'none';
 }
 
+function validarSenhaPreenchida() {
+    var passouNasValidacoes = true;
+    var inputSenha = document.getElementById("senha");
+    var campoErro = document.getElementById("erro_senha");
+    if (inputSenha.value.length === 0 ) {
+        inputSenha.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputSenha.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+function validarEmail() {
+    var passouNasValidacoes = true;
+    var inputEmailTitular = document.getElementById("email");
+    var campoErro = document.getElementById("erro_email");
+    if (inputEmailTitular.value === '') {
+        inputEmailTitular.style.borderColor = 'red';
+        campoErro.style.display = 'block';
+        passouNasValidacoes = false;
+    }
+    else{
+        inputEmailTitular.style.borderColor = '#85a99d';
+        campoErro.style.display = 'none';
+    }
+    return passouNasValidacoes;
+}
+
+function validarCamposSubmissao(){
+    var validouEmail = validarEmail();
+    var validouSenha = validarSenhaPreenchida();
+    return (validouEmail && validouSenha);
+}
