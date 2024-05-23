@@ -198,11 +198,10 @@ function cadastrarUsuario() {
         confirmar_senha: document.getElementById('confirmar_senha').value,
     };
     localStorage.setItem('cadastro', JSON.stringify(formData));
-    alert('Dados salvos com sucesso!');
+    document.getElementById("modal-sucesso-cadastro").style.display = "block";
+    resetFormulario();
     }
-    else {
-        alert('Preencha corretamente os dados de Cadastro');
-    }
+
 }
 
 
@@ -466,3 +465,24 @@ function resetFormulario() {
     limparEndereco();
 }
 
+function mascaraNome(nome){
+    //// Remove qualquer caracter que não seja dígito
+    nome = nome.replace(/[^a-zA-Z ]/g, '');
+    return nome;
+}
+
+document.getElementById('nome').addEventListener('input', function (e) {
+    var input = e.target;
+    var valorFormatado = mascaraNome(input.value);
+    input.value = valorFormatado;
+});
+
+document.getElementById('sobrenome').addEventListener('input', function (e) {
+    var input = e.target;
+    var valorFormatado = mascaraNome(input.value);
+    input.value = valorFormatado;
+});
+
+function fecharSucessoCadastro(){
+    document.getElementById("modal-sucesso-cadastro").style.display = "none";
+}

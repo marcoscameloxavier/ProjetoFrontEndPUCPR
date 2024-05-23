@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../css/util.css" />
     <link rel="stylesheet" href="../css/fontawesome-free-web/css/all.css" />
     <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="stylesheet" href="../css/index.css" />
     <link rel="shortcut icon" type="image/png" href="../img/Logo3.png"/>
     <script defer src="../js/cadastro.js"></script>
     <title>Páginas Infinitas</title>
@@ -112,13 +113,14 @@
 
 </div>
 
-
-<!-- Modal de Erro -->
-<div id="errorModal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p id="errorMessage">Erro ao buscar o CEP. Por favor, tente novamente.</p>
+<div id="modal-sucesso-cadastro" class="modal-error">
+    <div class="modal-error-content">
+        <span class="close" onclick="fecharSucessoCadastro()">&times;</span>
+        <p>Dados cadastrados com sucesso</p>
+        <button class="botao-modal" onclick="fecharSucessoCadastro()">OK</button>
     </div>
 </div>
+
+
 
 </body>
