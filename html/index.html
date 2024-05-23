@@ -63,11 +63,20 @@
 
          <!-- Modal de confirmação para limpar o carrinho -->
          <div id="modalConfirmacao" class="modal">
-             <div class="modal-content">
+             <div class="modal-error-content">
                  <span class="close" onclick="fecharModalLimparCarrinho()">&times;</span>
                  <p>Tem certeza que deseja limpar o carrinho?</p>
                  <button id="confirmarLimpeza" class="botao-modal" onclick="limparCarrinho()">Confirmar</button>
                  <button id="cancelarLimpeza" class="botao-modal-cancel" onclick="fecharModalLimparCarrinho()">Cancelar</button>
+             </div>
+         </div>
+
+         <!-- Modal para exibir mensagem de erro -->
+         <div id="modalFazerLogin" class="modal-error">
+             <div class="modal-error-content">
+                 <span class="close" onclick="fecharModalFazerLogin()">&times;</span>
+                 <p>Olá, efetue seu login para concluir a compra!</p>
+                 <button class="botao-modal" onclick="mostrarModalLogin()">Efetuar Login</button>
              </div>
          </div>
 

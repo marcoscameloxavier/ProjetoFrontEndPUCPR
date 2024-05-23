@@ -1,4 +1,4 @@
-function ajustarPrecoTotaleProdutos() {
+function ajustarPrecoTotaleProdutos(exibirParcelamento) {
     var carrinho = JSON.parse(localStorage.getItem("carrinhoLivros"));
     if (carrinho != null) {
         var total = 0;
@@ -16,6 +16,8 @@ function ajustarPrecoTotaleProdutos() {
         document.getElementById("label-itens-total-carrinho").innerHTML = `Subtotal (${totalprodutos} itens):`;
         document.getElementById("itens-total-carrinho").innerHTML = `${precoFormatado}`;
         document.getElementById("valor-total-carrinho").innerHTML = `${precoFormatado}`;
-        atualizarParcelamento(total);
+        if(exibirParcelamento) {
+            atualizarParcelamento(total);
+        }
     }
 }
