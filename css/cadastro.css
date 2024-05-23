@@ -86,4 +86,13 @@ input {
 
 }
 
+.logo2{
+    color: var(--cor-texto-barra);
+    display:flex;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    margin-right: 10px;
+}
+
 

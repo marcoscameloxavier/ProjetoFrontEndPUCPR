@@ -224,7 +224,12 @@ function atualizarParcelamento(valorTotal) {
     var numeroParcelas = valorTotal > 500 ? 5 : (valorTotal > 400 ? 4 : (valorTotal > 300 ? 3 : 2 ));
     for (let i = 1; i <= numeroParcelas; i++) {
         let valorParcela = valorTotal / i;
-        let label = `${i}x R$ ${valorParcela.toFixed(2)} sem juros - total R$ ${valorTotal.toFixed(2)}`;
+        var label = '';
+        if (i === 1) {
+            label = `à vista - total R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+        } else {
+            label = `${i}x R$ ${valorParcela.toFixed(2).replace('.', ',')} sem juros - total R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+        }
         let option = document.createElement('option');
         option.value = i;
         option.text = label;

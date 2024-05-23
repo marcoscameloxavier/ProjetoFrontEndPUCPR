@@ -294,9 +294,16 @@ function mostrarModalLogin() {
 
 //Funcao para fechar o modal de login
 function fecharModalLogin() {
+        document.getElementById('erro_login' ).style.display = 'none';
+        document.getElementById("erro_senha").style.display = 'none';
+        document.getElementById("erro_email").style.display = 'none';
+        var inputSenha = document.getElementById("senha");
+        inputSenha.style.borderColor = '#85a99d';
+        inputSenha.value= '';
+        var inputEmail = document.getElementById("email");
+        inputEmail.style.borderColor = '#85a99d';
+        inputEmail.value= '';
         document.getElementById('modalLogin').style.display = 'none';
-
-
 }
 
 // Função para efetuar o login
@@ -321,14 +328,6 @@ function login() {
 function logout() {
     localStorage.setItem("usuarioLogado","false");
     carregarUsuarioLogado();
-}
-
-
-// Função para efetuar o cadastro
-function cadastro() {
-    // Aqui você pode adicionar o código para direcionar o usuário para a página de cadastro
-    // Por enquanto, apenas exibiremos uma mensagem no console
-
 }
 
 // Adiciona um ouvinte de eventos ao botão de fechar
