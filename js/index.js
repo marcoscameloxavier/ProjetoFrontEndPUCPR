@@ -132,7 +132,7 @@ function mostrarCarrinho(){
     var carrinhoLateral = document.getElementById('carrinho-lateral');
     carrinhoLateral.classList.add('mostrar');
     carregarCarrinho();
-    ajustarPrecoTotaleProdutos();
+    ajustarPrecoTotaleProdutos(false);
 }
 
 function esconderCarrinho() {
@@ -274,18 +274,16 @@ function diminuirQuantidade(id) {
 // Função para abrir o modal de confirmação de limpeza do carrinho
 function mostrarModalLimparCarrinho() {
     document.getElementById('modalConfirmacao').style.display = 'block';
-    document.getElementById('carrinho-lateral').style.opacity = '0.8'; // Reduz a opacidade do carrinho
 }
 
 // Função para fechar o modal de confirmação de limpeza do carrinho
 function fecharModalLimparCarrinho() {
     document.getElementById('modalConfirmacao').style.display = 'none';
-    document.getElementById('carrinho-lateral').style.opacity = '1'; // Restaura a opacidade do carrinho
 }
-
 
 //Bloco para o Modal de Login
 function mostrarModalLogin() {
+    fecharModalFazerLogin();
     if(localStorage.getItem('usuarioLogado') === 'true') {
         logout();
     }
@@ -358,7 +356,19 @@ window.addEventListener('resize', function() {
 });
 
 function finalizarCompra() {
-// redireciona para compra.html
-    window.location.href = "compra.html";
+    if(localStorage.getItem('usuarioLogado') === 'true') {
+        window.location.href = "compra.html";
+    }
+    else{
+        mostrarModalFazerLogin();
+    }
+}
+
+function mostrarModalFazerLogin() {
+    document.getElementById('modalFazerLogin').style.display = 'block';
+}
+
+function fecharModalFazerLogin() {
+    document.getElementById('modalFazerLogin').style.display = 'none';
 }
 

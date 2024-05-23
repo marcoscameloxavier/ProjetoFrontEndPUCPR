@@ -26,8 +26,6 @@
         <nav id="menu-principal">
             <a href="cadastro.html" onclick="">Cadastro</a>
             <a href="#carrinho" onclick="mostrarCarrinhoPaginaIncial()">Carrinho</a>
-            <!--  <a href="#finalizar">Finalizar Compra</a>
-            <a href="#login" onclick="mostrarModalLogin()">Login</a>-->
         </nav>
         <!-- Ícone de menu hamburger para dispositivos móveis -->
         <div class="menu-toggle" onclick="toogleMenu()"><i class="fa-solid fa-bars"></i></div>
@@ -145,6 +143,15 @@
             <h1>Compra finalizada com sucesso!</h1>
             <ol>Seu pedido foi concluído com sucesso. Em breve você receberá um e-mail com os detalhes da sua compra.</ol>
             <button class="botao" onclick="window.location.href='index.html'">Voltar para a página inicial</button>
+        </div>
+    </div>
+
+    <!-- Modal para exibir mensagem de erro -->
+    <div id="modal-erro-pagamento" class="modal-error">
+        <div class="modal-error-content">
+            <span class="close" onclick="fecharModalPagamento()">&times;</span>
+            <p>Para finalizar a compra, selecione a forma de pagamento</p>
+            <button class="botao-modal" onclick="fecharModalPagamento()">Selecionar pagamento</button>
         </div>
     </div>
 </body>

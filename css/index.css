@@ -42,11 +42,8 @@
       width: 65%;
       height: 90%;
       padding-top: 10px;
-       /* padding-left: 20px;*/
-      /*  padding-top: 10px;*/
        justify-content: center;
        align-items: center;
-       /*border-radius: 10px 10px 0px 0px;*/
 }
 
 .card-corpo{
@@ -118,8 +115,8 @@
     flex-grow: 1; /* permite que a barra de pesquisa cresça */
     display: flex;
     align-items: center;
-    flex-wrap: nowrap; /* Adicione esta linha */
-    min-height: 50px; /* Ajuste conforme a altura desejada */
+    flex-wrap: nowrap;
+    min-height: 50px;
     margin-right: 30px;
 }
 
@@ -128,7 +125,6 @@
     font-family: Arial, sans-serif;
     margin-right: 10px;
     font-size: 16px;
-    /*width: 300px;*/
     flex-grow: 1; /* permite que o input cresça */
     text-align: left;
     border: 1px solid #ccc;
@@ -146,7 +142,7 @@
     background: white;
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     transition: right 0.3s; /* Para animar a barra lateral */
-    z-index: 100; /* Garante que ela fique acima de outros elementos */
+    z-index: 100; /* Garante que a barra do carrinho fique acima de outros elementos */
 
     overflow-y: auto; /* permite rolagem dentro do carrinho */
     display: flex;
@@ -256,7 +252,7 @@
 }
 
 .capa-livro {
-    width: 60px; /* Ou a largura desejada para a miniatura */
+    width: 60px;
     height: auto;
     margin-right: 10px;
 }
@@ -269,12 +265,40 @@
 }
 
 .titulo-livro {
-    margin-bottom: 5px; /* Espaço entre o título e o preço */
+    margin-bottom: 5px;
 }
 
 .quantidade-livro {
     display: flex;
     align-items: center;
+}
+
+/* Estilo do modal de erro*/
+.modal-error {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed; /* Fixo na tela */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Adiciona scroll se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto com opacidade */
+}
+
+/* Estilo do conteúdo do modal */
+.modal-error-content {
+    left: 50%;
+    top: 50%;
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 90%; /* Ajustado para melhor responsividade */
+    max-width: 350px; /* Máximo de largura para grandes telas */
+    text-align: center; /* Centraliza o texto */
 }
 
 /* Estilo do modal */
@@ -379,13 +403,6 @@
     transform: translate(-50%, -50%);
 }
 
-/*
-.login-popup {
-    position: center;
-}
-*/
-
-
 .botao-fechar-login {
     position: absolute;
     top: 10px;
@@ -476,7 +493,7 @@
         flex-direction: column;
         width: 100%; /* Opcional: faz com que o menu utilize toda a largura disponível */
         position: absolute; /* Faz com que o menu suspenso não afete outros elementos */
-        top: 83px; /* Ajuste conforme a altura do seu menu-toggle */
+        top: 83px;
         left: 0;
         background-color: var(--cor-principal-barras);
         z-index: 1; /* Garante que o menu fique acima dos outros elementos */
@@ -501,8 +518,8 @@
 
 
     #termo-pesquisa {
-        width: auto; /* ou defina uma largura específica */
-        flex-grow: 1; /* Permite que o input cresça para preencher o espaço disponível */
+        width: auto;
+        flex-grow: 1;
     }
 
     .total-carrinho {
