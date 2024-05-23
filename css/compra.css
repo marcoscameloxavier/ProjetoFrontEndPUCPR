@@ -7,8 +7,8 @@
 
 .total-carrinho div {
     display: flex;
-    justify-content: start; /* Isso irá alinhar um item à esquerda e outro à direita */
-    margin-bottom: 5px; /* Isso adiciona um pequeno espaço entre as linhas, ajuste conforme necessário */
+    justify-content: start;
+    margin-bottom: 5px;
 }
 
 
@@ -22,7 +22,7 @@
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 1px solid #ddd; /* Adiciona uma borda sutil */
+    border: 1px solid #ddd;
     position: relative;
 }
 
@@ -73,7 +73,7 @@ input[type="radio"] {
     border-radius: 5px;
     text-align: left;
     border: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Adiciona uma sombra sutil */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .opcoes-pagamento {
@@ -86,7 +86,7 @@ input[type="radio"] {
 .opcao-pagamento {
     display: flex;
     align-items: center;
-    background: #f6f6f6;  /* Background para o label */
+    background: #f6f6f6;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
@@ -102,7 +102,7 @@ input[type="radio"] {
 }
 
 .pagamento-icons img, .boleto-icon, .pix-icon {
-    margin-right: 5px; /* Espaço entre ícones */
+    margin-right: 5px;
 }
 
 #itens-total-carrinho{

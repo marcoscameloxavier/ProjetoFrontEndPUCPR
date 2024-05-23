@@ -42,14 +42,11 @@ nav {
 
 nav a {
     color: var(--cor-texto-barra);
-   /* font-family: Arial, sans-serif;
-    font-size: 16px;*/
     text-decoration: none;
     padding: 8px 16px;
-     /* Tamanho da fonte dos itens do menu */
 }
 nav a:hover {
-    background-color: var(--cor-hover); /* Cor de fundo ao passar o mouse */
+    background-color: var(--cor-hover);
 }
 
 .botao{
@@ -187,7 +184,7 @@ h1 {
     padding: 0 4px;
 }
 
-/* Para adicionar uma seta customizada com FontAwesome ou outra biblioteca/iconografia */
+/* Adiciona seta customizada*/
 .form-floating-label select {
     background-image: url(../img/seta.png);
     background-repeat: no-repeat;
